@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MINIMALIST</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+    background:#f7f5f2;
+    color:#111;
+}
+
+/* ===== WRAPPER ===== */
+.wrapper{
+    width:100%;
+    height:100vh;
+    padding:40px;
+}
+
+/* ===== NAV ===== */
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.8rem;
+    font-weight:700;
+}
+
+.nav a{
+    margin:0 10px;
+    text-decoration:none;
+    color:#666;
+    cursor:pointer;
+}
+
+.nav a:hover{
+    color:#000;
+}
+
+/* ===== PAGES ===== */
+.page{
+    display:none;
+    height:calc(100vh - 120px);
+}
+
+.page.active{
+    display:flex;
+}
+
+/* ===================== HOME ===================== */
+.home{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    width:100%;
+}
+
+.home h1{
+    font-family:'Playfair Display',serif;
+    font-size:4rem;
+    line-height:1.1;
+}
+
+.home p{
+    color:#555;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    border:1px solid #111;
+    text-decoration:none;
+    color:#111;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#111;
+    color:#fff;
+}
+
+.home img{
+    width:100%;
+    height:75vh;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* ===================== ABOUT ===================== */
+.about{
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.about-text h1{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.about-text p{
+    color:#555;
+    line-height:2;
+}
+
+/* COLLECTION */
+.collection-title{
+    font-family:'Playfair Display',serif;
+    font-size:2rem;
+    margin-bottom:15px;
+    letter-spacing:2px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.gallery img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+/* ===================== CONTACT (BIGGER ONLY) ===================== */
+.contact{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.form{
+    width:480px; /* BIGGER */
+    text-align:center;
+}
+
+.form h1{
+    font-family:'Playfair Display',serif;
+    margin-bottom:25px;
+    font-size:2.6rem; /* BIGGER TITLE */
+}
+
+.form input,
+.form textarea{
+    width:100%;
+    padding:16px; /* BIGGER INPUT */
+    margin:12px 0;
+    border:1px solid #ccc;
+    font-size:1rem;
+}
+
+.form textarea{
+    resize:none;
+}
+
+.form button{
+    width:100%;
+    padding:16px;
+    background:#111;
+    color:white;
+    border:none;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+.form button:hover{
+    background:#333;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+
+    .home,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .home h1{
+        font-size:2.5rem;
+    }
+
+    .home img{
+        height:300px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- NAV -->
+    <div class="nav">
+
+        <div class="logo">YOUR BRAND</div>
+
+        <div>
+            <a onclick="showPage('home')">Home</a>
+            <a onclick="showPage('about')">About</a>
+            <a onclick="showPage('contact')">Contact</a>
+        </div>
+
+    </div>
+
+    <!-- HOME -->
+    <div id="home" class="page active">
+
+        <div class="home">
+
+            <div>
+                <h1>Timeless Style.<br>Modern Identity.</h1>
+
+                <p>
+                    Premium clothing designed for confidence, comfort, and elegance.
+                    Every piece reflects modern fashion with a timeless touch.
+                </p>
+
+                <a class="btn" onclick="showPage('about')">
+                    EXPLORE COLLECTION
+                </a>
+
+            </div>
+
+            <img src="https://i.pinimg.com/736x/9d/04/38/9d0438c7f0efef62b6d26dee6806b9eb.jpg">
+
+        </div>
+
+    </div>
+
+    <!-- ABOUT -->
+    <div id="about" class="page">
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <h1>ABOUT</h1>
+
+                <p>
+                    Our clothing brand focuses on timeless fashion, premium materials,
+                    and modern minimal design. Every piece is created to express confidence,
+                    identity, and effortless style.
+                    <br><br>
+                    We believe fashion should not be loud to be powerful — simplicity
+                    is our strongest statement.
+                </p>
+
+            </div>
+
+            <div>
+
+                <div class="collection-title">COLLECTION</div>
+
+                <div class="gallery">
+
+                    <img src="https://i.pinimg.com/1200x/17/32/ae/1732ae47ea56c7cbd4ab1523cdcadbcf.jpg">
+                    <img src="https://i.pinimg.com/736x/d4/d0/5f/d4d05f2165082571bdb87fb459889ed6.jpg">
+                    <img src="https://i.pinimg.com/1200x/7d/ee/62/7dee62a0792012990f02b84683d9e23b.jpg">
+                    <img src="https://i.pinimg.com/1200x/36/7e/b0/367eb00e7d9c23ef4dfdfa37a2d82af8.jpg">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CONTACT (BIGGER) -->
+    <div id="contact" class="page">
+
+        <div class="contact">
+
+            <div class="form">
+
+                <h1>Contact Us</h1>
+
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea rows="5" placeholder="Message"></textarea>
+
+                <button>SEND</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function showPage(pageId){
+
+    document.querySelectorAll(".page").forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+}
+</script>
+
+</body>
+</html>
