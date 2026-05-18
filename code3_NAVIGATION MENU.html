@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- ================= PAGE SETTINGS ================= -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francia's Perfume • Navigation Menu</title>
+
+<style>
+
+/* ================= RESET ================= */
+/* Removes default browser spacing */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+/* ================= BODY ================= */
+/* Main page styling */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height:1.7;
+  background-color:#FFF0F5; /* soft blush-pink background */
+  color:#8B3A62; /* dark pink text for readability */
+}
+
+/* ================= NAVBAR ================= */
+/* Fixed navigation bar at the top */
+.navbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background: rgba(255,228,225,0.95); /* light blush navbar */
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid rgba(247,198,184,0.5);
+  z-index:1000;
+}
+
+/* Container for navbar items */
+.nav-container {
+  max-width:1100px;
+  margin:auto;
+  height:100%;
+  padding:0 1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* ================= LOGO ================= */
+.logo {
+  font-size:1.4rem;
+  font-weight:700;
+  color:#F7C6B8;
+  text-decoration:none;
+}
+
+/* Dark color part of logo */
+.logo span {
+  color:#8B3A62;
+}
+
+/* ================= NAV MENU ================= */
+/* Main navigation links */
+.nav-menu {
+  display:flex;
+  gap:1.8rem;
+  list-style:none;
+}
+
+/* Each menu item */
+.nav-item {
+  position:relative;
+}
+
+/* Navigation links */
+.nav-item a {
+  color:#8B3A62;
+  text-decoration:none;
+  font-size:1rem;
+  padding:6px 0;
+  display:flex;
+  align-items:center;
+  gap:4px;
+  transition: color .25s;
+}
+
+/* Hover effect */
+.nav-item a:hover {
+  color:#FF6FA0;
+}
+
+/* Underline animation */
+.nav-item a::after {
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0%;
+  height:2px;
+  background:#F7C6B8;
+  transition:.3s;
+}
+
+/* Show underline when hovering */
+.nav-item a:hover::after {
+  width:100%;
+}
+
+/* ================= DROPDOWN MENU ================= */
+
+/* Adds arrow after dropdown label */
+.dropdown > a::after {
+  content:" ▼";
+  font-size:0.7rem;
+  opacity:0.7;
+  margin-left:2px;
+}
+
+/* Dropdown container */
+.dropdown-menu {
+  position:absolute;
+  top:100%;
+  left:0;
+  background: rgba(255,228,225,0.95);
+  backdrop-filter: blur(6px);
+  border-radius:8px;
+  padding:8px 0;
+  min-width:180px;
+
+  /* Hidden by default */
+  opacity:0;
+  visibility:hidden;
+  transform: translateY(10px);
+  transition: all .25s ease;
+  z-index:100;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+/* Dropdown links */
+.dropdown-menu a {
+  display:block;
+  padding:8px 16px;
+  font-size:0.95rem;
+  color:#8B3A62;
+  text-decoration:none;
+  transition:.2s;
+}
+
+/* Dropdown hover effect */
+.dropdown-menu a:hover {
+  background: rgba(247,198,184,0.3);
+  color:#F7C6B8;
+  padding-left:20px;
+}
+
+/* ================= HAMBURGER MENU ================= */
+/* Hidden checkbox for mobile toggle */
+.nav-toggle {
+  display:none;
+}
+
+/* Hamburger icon container */
+.hamburger {
+  display:none;
+  width:28px;
+  height:20px;
+  position:relative;
+  cursor:pointer;
+}
+
+/* Hamburger lines */
+.hamburger span {
+  position:absolute;
+  width:100%;
+  height:3px;
+  background:#8B3A62;
+  border-radius:3px;
+}
+
+/* Line positions */
+.hamburger span:nth-child(1){top:0;}
+.hamburger span:nth-child(2){top:8px;}
+.hamburger span:nth-child(3){top:16px;}
+
+/* ================= MOBILE DESIGN ================= */
+@media(max-width:900px){
+
+  /* Show hamburger icon */
+  .hamburger{display:block;}
+
+  /* Mobile navigation menu */
+  .nav-menu {
+    position:fixed;
+    top:60px;
+    right:0;
+    width:240px;
+    background:#FFF0F5;
+    flex-direction:column;
+    padding:1.5rem;
+    gap:1rem;
+    border-left:1px solid rgba(247,198,184,0.5);
+
+    /* Hidden by default */
+    transform:translateX(100%);
+    transition:.35s;
+  }
+
+  /* Show menu when checkbox is checked */
+  #nav-toggle:checked ~ .nav-menu {
+    transform:translateX(0);
+  }
+
+  /* Mobile dropdown menu */
+  .dropdown-menu {
+    position:static;
+    max-height:0;
+    overflow:hidden;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    transition:max-height .35s ease;
+  }
+
+  /* Expand dropdown when clicked */
+  .dropdown input:checked ~ .dropdown-menu {
+    max-height:400px;
+  }
+
+  /* Dropdown label */
+  .dropdown-toggle {
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    cursor:pointer;
+  }
+
+  /* Arrow rotation animation */
+  .dropdown-toggle span.arrow {
+    transition: transform .3s ease;
+  }
+
+  .dropdown input:checked + .dropdown-toggle span.arrow {
+    transform: rotate(90deg);
+  }
+
+  .dropdown a {
+    padding-left:0;
+  }
+}
+
+/* ================= MAIN CONTENT ================= */
+
+main {
+  padding-top:90px; /* prevents navbar from covering content */
+}
+
+/* Section layout */
+section {
+  max-width:900px;
+  margin:auto;
+  padding:80px 2rem;
+}
+
+/* Headings */
+h1{
+  font-size:2.4rem;
+  margin-bottom:10px;
+  color:#f2ae9b;
+}
+
+h2{
+  color:#8B3A62;
+  margin-bottom:18px;
+}
+
+/* Paragraph text */
+p{
+  margin-bottom:16px;
+  color:#8B3A62;
+}
+
+/* List styling */
+ul{
+  margin-left:20px;
+  margin-bottom:18px;
+}
+
+li{
+  margin-bottom:6px;
+}
+
+/* Content card container */
+.card{
+  background:rgba(255,245,247,0.9);
+  border:1px solid rgba(247,198,184,0.5);
+  border-radius:12px;
+  padding:28px;
+  backdrop-filter:blur(6px);
+}
+
+/* Highlighted quote text */
+.highlight{
+  font-style:italic;
+  color:#faa087;
+  margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION BAR ================= -->
+<nav class="navbar">
+<div class="nav-container">
+
+<!-- WEBSITE LOGO -->
+<a href="#home" class="logo">FRANCIA'S <span>PERFUME</span></a>
+
+<!-- MOBILE MENU TOGGLE -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+<!-- HAMBURGER MENU ICON -->
+<label for="nav-toggle" class="hamburger">
+<span></span><span></span><span></span>
+</label>
+
+<!-- ================= NAVIGATION MENU ================= -->
+<ul class="nav-menu">
+
+<!-- HOME -->
+<li class="nav-item"><a href="#home">Home</a></li>
+
+<!-- STORY DROPDOWN -->
+<li class="nav-item dropdown">
+
+<input type="checkbox" id="drop1" hidden>
+
+<label for="drop1" class="dropdown-toggle">
+Story <span class="arrow">▶</span>
+</label>
+
+<div class="dropdown-menu">
+<a href="#story">Our Story</a>
+<a href="#story">Founders</a>
+</div>
+
+</li>
+
+<!-- WHY US DROPDOWN -->
+<li class="nav-item dropdown">
+
+<input type="checkbox" id="drop2" hidden>
+
+<label for="drop2" class="dropdown-toggle">
+Why Us <span class="arrow">▶</span>
+</label>
+
+<div class="dropdown-menu">
+<a href="#different">Gentle Formula</a>
+<a href="#different">Unique Blend</a>
+</div>
+
+</li>
+
+<!-- CUSTOMIZE DROPDOWN -->
+<li class="nav-item dropdown">
+
+<input type="checkbox" id="drop3" hidden>
+
+<label for="drop3" class="dropdown-toggle">
+Customize <span class="arrow">▶</span>
+</label>
+
+<div class="dropdown-menu">
+<a href="#customize">Floral</a>
+<a href="#customize">Citrus</a>
+<a href="#customize">Fresh & Clean</a>
+<a href="#customize">Soft Sweet</a>
+</div>
+
+</li>
+
+<!-- SENSITIVE SECTION LINK -->
+<li class="nav-item"><a href="#sensitive">Sensitive</a></li>
+
+<!-- CONTACT LINK -->
+<li class="nav-item"><a href="#contact">Contact</a></li>
+
+</ul>
+</div>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+
+<!-- HOME SECTION -->
+<section id="home">
+
+<h1>FRANCIA’S PERFUME</h1>
+<h2>Gentle Scents, Made for You</h2>
+
+<div class="card">
+
+<p>A customizable perfume for sensitive noses.</p>
+
+<ul>
+<li> Light and breathable</li>
+<li> Customizable scent preference</li>
+<li> Allergy-friendly</li>
+<li> Not overpowering</li>
+</ul>
+
+<p class="highlight">“Fragrance should make you feel confident.”</p>
+
+</div>
+</section>
+
+<!-- STORY SECTION -->
+<section id="story">
+
+<h1>The Story Behind Francia’s Perfume</h1>
+
+<div class="card">
+<p>
+Strong perfumes can overwhelm people with sensitive smell.
+Francia’s Perfume was made for gentle, comfortable fragrances.
+</p>
+</div>
+
+</section>
+
+<!-- WHY US SECTION -->
+<section id="different">
+
+<h1>What Makes Francia’s Perfume Different</h1>
+
+<div class="card">
+<ul>
+<li> Mild on the nose</li>
+<li> Customizable scent strength</li>
+<li> Allergy-friendly formula</li>
+<li> Comfortable for daily use</li>
+</ul>
+</div>
+
+</section>
+
+<!-- CUSTOMIZE SECTION -->
+<section id="customize">
+
+<h1>Customize Your Own Scent</h1>
+
+<div class="card">
+<p><strong>Scent Types</strong></p>
+
+<ul>
+<li> Floral</li>
+<li> Citrus</li>
+<li> Fresh & Clean</li>
+<li> Soft Sweet</li>
+</ul>
+
+</div>
+</section>
+
+<!-- SENSITIVE USERS SECTION -->
+<section id="sensitive">
+
+<h1>Perfect for Sensitive Smell</h1>
+
+<div class="card">
+<ul>
+<li>✔ Allergy-friendly</li>
+<li>✔ No overpowering smell</li>
+<li>✔ Comfortable daily fragrance</li>
+<li>✔ Breathable scent</li>
+</ul>
+</div>
+
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+
+<h1>FRANCIA’S PERFUME</h1>
+
+<div class="card">
+
+<p><strong>Your scent. Your comfort. Your choice.</strong></p>
+
+<p>
+Instagram: @franciasperfume<br>
+Facebook: Francia’s Perfume
+</p>
+
+<p class="highlight">“Fragrance should make you feel confident.”</p>
+
+</div>
+</section>
+
+</main>
+</body>
+</html>

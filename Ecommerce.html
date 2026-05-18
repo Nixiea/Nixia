@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NIXIE BOUTIQUE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+url('https://i.pinimg.com/736x/96/a9/b9/96a9b9dfa345bdaceccd7e48a1414b29.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 25px;
+background:rgba(235, 220, 190, 0.92);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+box-shadow:0 0 25px rgba(212,106,165,0.2);
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#8a735a;
+text-shadow:0 0 10px #e0ceba;	
+}
+
+nav a{
+
+margin:0 8px;
+
+cursor:pointer;
+
+text-decoration:none;
+
+color:#5C4634;
+
+transition:0.3s;
+
+}
+
+nav a:hover {
+
+  color: #D4AF37;
+
+}
+
+.cart-icon{
+
+position:relative;
+
+display:inline-block;
+
+font-size:22px;
+
+cursor:pointer;
+
+padding:5px 10px;
+
+transition:0.3s;
+
+}
+
+.cart-icon:hover{transform:scale(1.1);}
+
+.badge{
+
+position:absolute;
+
+top:-5px;
+
+right:-5px;
+
+background:red;
+
+color:white;
+
+font-size:12px;
+
+width:18px;
+
+height:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+box-shadow:0 0 8px rgba(255,0,0,0.6);
+
+font-weight:bold;
+
+}
+
+.categories{text-align:center;padding:15px;}
+
+.categories button{
+
+margin:5px;
+
+padding:10px 15px;
+
+border:none;
+
+border-radius:20px;
+
+background:linear-gradient(135deg,#c9b28f,#9e8764);
+
+color:white;
+
+cursor:pointer;
+
+box-shadow:0 0 10px rgba(87, 73, 51);
+
+transition:0.3s;
+
+}
+
+.categories button:hover{
+transform:scale(1.1);
+box-shadow:0 0 18px rgba(245, 226, 193);}
+
+.container{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+
+gap:18px;
+
+padding:20px 15px;
+
+}
+.card{
+    background:rgba(230, 212, 184, 0.95);
+    border-radius:16px;
+    padding:15px;
+    text-align:center;
+    transition:0.3s;
+    box-shadow:0 4px 12px rgba(143, 121, 84, 0.25);
+    display:flex;
+    flex-direction:column;
+    height:420px;  /* Fixed height */
+    position:relative;
+    overflow:hidden;
+    justify-content: space-between;  /* Distributes content evenly */
+}
+
+.card img {
+    width:100%;
+    height:200px;  /* Fixed image height */
+    object-fit:cover;  /* Makes all images perfectly uniform */
+    border-radius:12px;
+    margin-bottom:12px;
+    position:relative;
+    z-index:1;
+}
+
+.card h4 {
+    min-height:60px;  /* Fixed height for titles */
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 0 12px 0;
+    line-height:1.3;
+    font-size:16px;
+    padding:0 8px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+}
+
+.card .price {
+    color:#705d3d;
+    font-weight:700;
+    font-size:22px;
+    margin:8px 0 20px 0;
+    position:relative;
+    z-index:1;
+}
+
+.card-buttons {
+    display:flex;
+    gap:8px;
+    margin-top:auto;  /* Pushes buttons to bottom */
+}
+
+.card-buttons button {
+    flex:1;
+    padding:10px 12px;
+    border:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.card-buttons button:nth-child(1) {
+    background:linear-gradient(135deg, #C8AD7F, #a1875d);
+    color:#3F2A1E;
+}
+
+.card-buttons button:nth-child(2) {
+    background:linear-gradient(135deg, #b59679, #755f4b);
+    color:white;
+}
+
+.card-buttons button:hover {
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+.sizes {
+
+font-size:13px;
+
+color:#635444;
+
+font-weight:600;
+
+margin: 4px 0 8px 0;
+
+}
+
+.price{
+
+color:#705d3d;
+
+font-weight:700;
+
+font-size:20px;
+
+margin:10px 0 19px 0;
+
+}
+
+.page{display:none}
+
+.active{display:block}
+
+.box{
+
+background:rgba(245, 237, 228, 0.92);
+
+margin:100px;
+
+padding:10px;
+
+border-radius:18px;
+
+box-shadow:0 0 20px rgba(255,105,180,0.15);
+
+}
+
+input,select{
+
+display:block;width:50%;
+
+padding:10px;
+
+margin:8px auto;
+
+border-radius:10px;
+
+border:1px solid #a1875d;
+
+}
+
+button{
+
+padding:10px 15px;
+
+border:none;
+
+border-radius:10px;
+
+background:#C8AD7F;
+
+color:#3F2A1E;
+
+font-weight:600;
+
+box-shadow:0 4px 12px rgba(212,175,55,0.25);
+
+transition:all 0.3s;
+
+}
+
+button:hover{
+
+background:#C8AD7F;
+
+transform:translateY(-2px);
+
+box-shadow:0 8px 20px rgba(212,175,55,0.4);
+
+}
+
+.qty-controls{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:10px;
+
+margin:5px 0;
+
+}
+
+.qty-controls button{
+
+padding:5px 10px;
+
+border-radius:6px;
+
+}
+#loginPage {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.login-box {
+    background: rgba(255, 248, 240, 0.97);
+    padding: 50px 60px;     /* slim padding */
+    border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    text-align: center;
+    max-width: 600px;      
+    width: 80%;
+}
+
+#product .box {
+    background: rgba(245, 237, 228, 0.95);
+    margin: 30px auto;
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+#checkout h3, #checkout h2 {
+    margin: 8px 0;
+}
+
+#payment .box {
+    background: rgba(245, 237, 228, 0.97);
+    padding: 40px 35px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    margin: 40px auto;
+    max-width: 520px;
+}
+
+#payment label {
+    color: #5C4634;
+    font-weight: 600;
+}
+
+#payment input, #payment select {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #d4c3a9;
+    border-radius: 12px;
+    font-size: 16px;
+    background: white;
+}
+
+#payment button {
+    background: #C48B9F;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+#payment button:hover {
+    background: #b36d85;
+    transform: translateY(-3px);
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loginPage" class="active">
+    <div class="login-box">
+        <h2 style="color:#4d3e27; 
+                   text-shadow: 0 0 15px rgba(232, 215, 172); 
+                   font-size: 31px; 
+                   margin-bottom: 40px;">
+            LOGIN TO NIXIE BOUTIQUE
+        </h2>
+        
+        <input id="email" placeholder="Email" 
+               style="width:100%; padding:16px 18px; margin:14px 0; 
+                      border-radius:12px; border:1px solid #d4c3a9; font-size:17px;">
+        
+        <input id="pass" type="password" placeholder="Password" 
+               style="width:100%; padding:16px 18px; margin:14px 0; 
+                      border-radius:12px; border:1px solid #d4c3a9; font-size:17px;">
+        
+        <button onclick="login()" 
+                style="width:100%; padding:16px; margin-top:30px; font-size:18px;">
+            Login
+        </button>
+    </div>
+</div>
+
+<div id="app" style="display:none">
+<nav>
+<div class="logo">NIXIE BOUTIQUE</div>
+<div>
+<a onclick="show('home')">Shop</a>
+<a onclick="show('checkout')" class="cart-icon">🛒<span id="cartCount" class="badge">0</span></a>
+</div>
+</nav>
+
+<div style="text-align:center;padding-top:15px;">
+<input id="searchInput" onkeyup="searchProducts()" placeholder="Search products" style="width:60%;max-width:400px;">
+
+</div>
+<div class="categories">
+<button onclick="filter('all')">All</button>
+<button onclick="filter('tops')">Tops</button>
+<button onclick="filter('pants')">Pants</button>
+<button onclick="filter('skirts')">Skirts</button>
+<button onclick="filter('jackets')">Jackets</button>
+<button onclick="filter('dresses')">Dresses</button>
+</div>
+
+<div style="text-align:center; margin:15px 0 10px 0;">
+<select id="sortSelect" onchange="sortProducts()" style="padding:10px 15px; border-radius:10px; border:1px solid #a1875d; font-size:15px;">
+<option value="default">Sort by Default</option>
+<option value="low">Price: Low to High</option>
+<option value="high">Price: High to Low</option>
+</select>
+</div>
+
+<div id="home" class="active page">
+    <div class="container" id="products"></div>
+</div>
+
+
+<div id="product" class="page">
+    <div class="box" style="max-width: 900px; margin: 30px auto;">
+        <button onclick="show('home')" style="margin-bottom:20px; padding:10px 20px;">← Back to Shop</button>
+        
+        <div style="display: flex; gap: 50px; align-items: center; justify-content: center; flex-wrap: wrap;">
+            
+            
+            <div style="flex: 1; text-align: center; min-width: 280px;">
+                <img id="pimg" style="width:100%; max-width: 380px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+            </div>
+            
+            <div style="flex: 1; min-width: 300px; text-align: left;">
+                <h2 id="pname" style="margin: 0 0 15px 0; color: #3F2A1E;"></h2>
+                <p id="pdesc" style="color:#666; line-height:1.7; margin-bottom:20px;"></p>
+                <p id="psizes" style="color:#665644; font-weight:600; margin:15px 0;"></p>
+                <p id="pprice" style="font-size:28px; font-weight:700; color:#C48B9F; margin:20px 0;"></p>
+                
+                <button onclick="addCart()" style="width:100%; max-width:320px; padding:16px; font-size:17px;">
+                    Add to Cart
+                </button>
+            </div>		
+        </div>
+    </div>
+</div>
+
+<div id="checkout" class="page">
+    <h2 style="text-align:center; color:#C48B9F; margin-bottom:25px;">Checkout</h2>
+    
+    <div class="box" id="cartBox"></div>
+    
+    <div class="box" style="text-align:center">
+        <h3>Promo Code</h3>
+        <input id="promoInput" placeholder="Enter Promo Code">
+        <button onclick="applyPromo()">Apply Promo</button>
+        <p id="promoText"></p>
+    </div>
+
+    <div class="box" style="text-align:center; background:rgba(245, 237, 228, 0.97);">
+        <h3 id="subtotal"></h3>
+        <h3 id="delivery"></h3>
+        <h2 id="total" style="color:#C48B9F;"></h2>
+        
+        <button onclick="show('payment')" style="width:100%; max-width:400px; padding:16px; font-size:18px; margin-top:20px;">
+            Proceed to Payment
+        </button>
+    </div>
+</div>
+
+<div id="payment" class="page">
+    <div class="box" style="max-width: 500px; margin: 40px auto;">
+        <h2 style="text-align:center; color:#C48B9F; margin-bottom:30px;">Payment</h2>
+        
+        <label style="display:block; margin:15px 0 8px; font-weight:600;">Payment Method</label>
+        <select id="method" style="width:100%; padding:14px; margin-bottom:20px; border-radius:12px;">
+            <option>GCash</option>
+            <option>PayPal</option>
+            <option>Cash on Delivery</option>
+        </select>
+        
+        <label style="display:block; margin:15px 0 8px; font-weight:600;">Full Name</label>
+        <input id="name" placeholder="Enter Full Name" style="width:100%; padding:14px; margin-bottom:20px; border-radius:12px;">
+        
+        <label style="display:block; margin:15px 0 8px; font-weight:600;">Delivery Address</label>
+        <input id="address" placeholder="Enter Complete Address" style="width:100%; padding:14px; margin-bottom:30px; border-radius:12px;">
+        
+        <button onclick="placeOrder()" style="width:100%; padding:16px; font-size:18px;">
+            Place Order
+        </button>
+    </div>
+</div>
+
+
+<div id="receipt" class="page">
+    <div class="box" style="max-width: 500px; margin: 50px auto; text-align:center;">
+        <h2 style="color:#C48B9F; font-size:32px;">Order Confirmed</h2>
+        <p style="font-size:18px; margin:20px 0;">Thank you for your order!</p>
+        <div style="background:white; padding:20px; border-radius:15px; margin:25px 0;">
+            <p id="orderInfo" style="font-size:17px;"></p>
+            <p id="tracking" style="color:#C48B9F; font-weight:600; font-size:17px;"></p>
+        </div>
+        <button onclick="backToShop()" style="padding:14px 40px; font-size:17px;">Back to Shop</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+function login(){
+    const email = document.getElementById('email').value;
+    const pass = document.getElementById('pass').value;
+    
+    if(email === "" || pass === "") {
+        return alert('Please fill up email and password');
+    }
+
+    document.getElementById('loginPage').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    
+    show('home');
+    render();        
+    updateCartCount();
+}
+
+const items={
+
+tops:[
+
+{name:"Blue Dream Crop Top",img:"https://i.pinimg.com/736x/05/95/cd/0595cd6e937d9f39a81e57c04a4b7945.jpg"},
+
+{name:"Angel White Lace Cropped Blouse",img:"https://i.pinimg.com/1200x/eb/62/29/eb622995e5fc376de9170694d635f60c.jpg"},
+
+{name:"Black Ribbed Halter Top with Bow Detail",img:"https://i.pinimg.com/1200x/d2/5f/89/d25f89ccf464302b106bd2d1b9425c9d.jpg"},
+
+{name:"Soft Pink Baby Tee with Heart Design",img:"https://i.pinimg.com/1200x/6e/14/4b/6e144bb8f4a9d53cbe5e2e6a070c591a.jpg"},
+
+{name:"Ocean Wave Blue Off-Shoulder Top",img:"https://i.pinimg.com/1200x/83/24/fd/8324fdbaa13a4733845e3fdf0f1ab5b3.jpg"},
+
+{name:"Starry Night Black Crop Top Sparkle",img:"https://i.pinimg.com/736x/7a/e9/c0/7ae9c00f7033d2d1f8ea54f6a0ebb217.jpg"},
+
+{name:"Cherry Bomb Graphic Cropped Tee",img:"https://i.pinimg.com/1200x/c6/a3/34/c6a3342e70a03c349604a34b11b129ad.jpg"},
+
+{name:"Pastel Cloud Tie-Dye Crop Top",img:"https://us.motelrocks.com/cdn/shop/products/SUPER-CROP-TEE-PASTEL-TIE-DYE-32792_1_1200x1200.jpg?v=1589429071"},
+
+{name:"Vintage Cream Button-Up Cropped Shirt",img:"https://i.pinimg.com/1200x/c4/76/82/c476823b585326c87af3ab20c658c309.jpg"},
+
+{name:"Fairy Dust Mesh Long Sleeve Top",img:"https://i.pinimg.com/736x/02/83/72/028372ba441c5d08dd1d7b618f97170f.jpg"},
+
+{name:"Lavender Kiss Corset Style Top",img:"https://i.pinimg.com/736x/af/3b/83/af3b8321b40834fdfbc8f6369a54add8.jpg"},
+
+{name:"Street Vibe Oversized Graphic Tee",img:"https://i.pinimg.com/1200x/87/ce/65/87ce65d5172372274c9c97e3b9979364.jpg"},
+
+{name:"Ice Blue Satin Cami Top",img:"https://i.pinimg.com/1200x/e4/1a/f6/e41af6f2bedb9ac7b458fde713d43181.jpg"},
+
+{name:"Retro Pink Striped Crop Top",img:"https://i.pinimg.com/736x/ec/c0/b5/ecc0b506547e776f0a9b352cc812a7f4.jpg"},
+
+{name:"Minimalist White Square Neck Top",img:"https://i.pinimg.com/1200x/2f/43/34/2f4334263e125acb6b6b4c4637b7b181.jpg"},
+
+{name:"Butterfly Print Y2K Crop Top",img:"https://i.pinimg.com/1200x/4f/73/85/4f738541d3a389a90978215aedafeaa3.jpg"},
+
+{name:"Dark Angel Black Mesh Top",img:"https://i.pinimg.com/1200x/b9/cd/12/b9cd12cf984e7dca26f970f2ee8c06e3.jpg"},
+
+{name:"Sunshine Yellow Off-Shoulder Blouse",img:"https://i.pinimg.com/736x/a1/6e/ad/a16eadf1c1b1ea6f2d62b6b88b0d0283.jpg"},
+
+{name:"Soft Beige Knitted Crop Top",img:"https://lewkin.com/cdn/shop/files/005_a9992968-db3d-4c22-bb26-85880f3f85f0.webp?pad_color=fff&v=1767142621&width=940"},
+
+{name:"Y2k Peplum Babydoll Crop Tank Tops",img:"https://i.pinimg.com/736x/60/c8/11/60c8116700c16f2c21a8a15211023a82.jpg"},
+
+{name:"Rose Garden Puff Sleeve Top",img:"https://i.pinimg.com/1200x/a1/99/87/a19987c8b94fdf68b714f55cefc27ae0.jpg"},
+
+{name:"Baby Blue Ruffle Tube Top",img:"https://i.pinimg.com/1200x/7a/91/ee/7a91eeb8954a02ac6f37fe8038c32893.jpg"},
+
+{name:"Edgy Black Buckle Crop Top",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTly_mudBi1SYdC6ay_QCTeSnlheXy5zfzsRQ&s"},
+
+{name:"Mint Green Cute Graphic Tee",img:"https://i.pinimg.com/1200x/70/26/2a/70262a713726da43025c4d7ab43131ab.jpg"},
+
+{name:"Pearl White Elegant Corset Top",img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7NtzBePKJYeDemioe_iG9WJzH3-hyrF5J1w&s"},
+
+{name:"Denim Blue Crop Top with Stitch Design",img:"https://i.pinimg.com/736x/0e/49/60/0e4960e6b0bd1369735085a4b3a15369.jpg"},
+
+{name:"Jacquard Bow Accent Sleeveless Top",img:"https://www.ciders.com.se/wp-content/uploads/cider-tops/cd20250110592510tt_3.jpg"},
+
+{name:"Midnight Black Lace Crop Blouse",img:"https://i.pinimg.com/1200x/07/31/a2/0731a208fad8f7f8069a553159ab257b.jpg"},
+
+{name:"Asymmetric Halter Top",img:"https://static.zara.net/assets/public/6110/9888/ec3b40af85a9/a2740023929a/06104375819-a1/06104375819-a1.jpg?ts=1778230661935&w=974"},
+
+{name:"Cotton Candy Pink Oversized Tee",img:"https://i.pinimg.com/1200x/04/a5/44/04a5444d3dcdfd4602db2608805c5743.jpg"}
+
+],
+
+pants:[
+
+{name:"Light Wash Denim Jeans with Ribbon Side Detail",img:"https://i.pinimg.com/1200x/fc/ac/a3/fcaca3d72673b4d31e5025814ef21a8b.jpg"},
+
+{name:"Black High-Waist Skinny Jeans",img:"https://i.pinimg.com/1200x/77/87/44/778744f89de4ec521754c4fcd89fd078.jpg"},
+
+{name:"Street Cargo Pants with Chain Design",img:"https://i.pinimg.com/1200x/88/b4/fc/88b4fc671fc1b5716a2ee613652c5ea3.jpg"},
+
+{name:"Soft Grey Joggers with Side Stripe",img:"https://i.pinimg.com/1200x/a4/b4/ef/a4b4effab5dec697b887d1535ede2a21.jpg"},
+
+{name:"Vintage Blue Wide-Leg Jeans",img:"https://i.pinimg.com/1200x/58/85/c3/5885c37c2268b2139abb0e33dadf22ac.jpg"},
+
+{name:"Beige Korean Style Straight Pants",img:"https://i.pinimg.com/736x/16/6d/87/166d87e9f77ea329ebe93d958b64d00e.jpg"},
+
+{name:"Dark Wash Mom Jeans with Distress Effect",img:"https://i.pinimg.com/1200x/8a/be/d9/8abed929b4df957ca8105fe5a962b01b.jpg"},
+
+{name:"Pink Cargo Pants with Pocket Design",img:"https://i.pinimg.com/1200x/e2/25/01/e22501b1592ac6493b8ac2328d30570a.jpg"},
+
+{name:"Black Leather Look Skinny Pants",img:"https://i.pinimg.com/736x/1f/9c/76/1f9c76f2ba1e303354758729fc104388.jpg"},
+
+{name:"Oversized Baggy Jeans Y2K Style",img:"https://i.pinimg.com/736x/53/5b/8e/535b8e9bc2f89dc1211533d444c9eb56.jpg"},
+
+{name:"White Linen Summer Pants",img:"https://i.pinimg.com/1200x/dd/fd/75/ddfd75f4b63bb77a5037eadd37b29b89.jpg"},
+
+{name:"Olive Green Tactical Cargo Pants",img:"https://i.pinimg.com/1200x/86/c7/47/86c747b503406a85c4c3317873a13f8b.jpg"},
+
+{name:"Grey Sweatpants with Minimal Logo",img:"https://i.pinimg.com/1200x/12/00/91/120091a4c9f114f9e72fc9d0e3418ae4.jpg"},
+
+{name:"Blue Flared Jeans Retro Edition",img:"https://i.pinimg.com/736x/42/34/56/4234569bdfd8f1a44d66957b89506560.jpg"},
+
+{name:"High-Waist Black Wide Leg Pants",img:"https://www.omychic.com/cdn/shop/products/Original-Design-Black-High-Waist-Cotton-Wide-Leg-Pants-Spring1.jpg?v=1710821915&width=900"},
+
+{name:"Soft Cotton Beige Jogger Pants",img:"https://i.pinimg.com/1200x/67/b9/f4/67b9f4162a539c09439b4b0fda5b8589.jpg"},
+
+{name:"Distressed Denim Ripped Jeans",img:"https://i.pinimg.com/1200x/fe/94/5a/fe945aab15e75cce9a7f1c9b40f3d4ab.jpg"},
+
+{name:"Street Style Black Parachute Pants",img:"https://i.pinimg.com/736x/b5/27/17/b52717e4f26cc22beb5a5f4d80850d49.jpg"},
+
+{name:"Powder Blue Relaxed Fit Pants",img:"https://i.pinimg.com/736x/b9/a6/68/b9a668641c1dcb9cf6ed546346b02e34.jpg"},
+
+{name:"Ribbon Detail Light Denim Jeans",img:"https://i.pinimg.com/736x/3a/f6/f1/3af6f12ea55e46ca9d3282da4a041cb0.jpg"},
+
+{name:"Cargo Pants with Utility Straps",img:"https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ5txGLcxHnjTDJhzdlydgXfssb-GgP8VwfJq77DEE6wUB0KmQUJ4mIVgifHBVdqg-fP9lK43b6y6hAyGrP9s7hg_wNDiDl"},
+
+{name:"Classic Navy Blue Slim Fit Pants",img:"https://i.pinimg.com/736x/2c/2b/25/2c2b25cb38967acef5c90f511246f47f.jpg"},
+
+{name:"Soft Pink Lounge Joggers",img:"https://i.pinimg.com/1200x/3f/60/9a/3f609af1510dad5838f1962e7a7c56fa.jpg"},
+
+{name:"High Rise Vintage Straight Jeans",img:"https://i.pinimg.com/1200x/92/dc/10/92dc10d40ef0c6523eca58cc1487f0a6.jpg"},
+
+{name:"White Wide-Leg Flow Pants",img:"https://i.pinimg.com/1200x/97/ba/5b/97ba5bf86f972dcb570d81119e61831d.jpg"},
+
+{name:"Dark Grey Urban Jogger Pants",img:"https://i.pinimg.com/1200x/26/a9/8e/26a98e0bf198578ec56b5e95b1a5abbc.jpg"},
+
+{name:"Baggy Cargo Camo Print Streetwear",img:"https://i5.walmartimages.com/asr/5ea596c1-44cf-42c4-9f68-f7051d2c946c.421d6ab69cd4fd7d9a1e3a7e7c37fdc9.jpeg"},
+
+{name:"Loose Fit Khaki Cargo Pants",img:"https://i.pinimg.com/1200x/9d/ec/eb/9deceb18067d793045ab4d1659df93ca.jpg"},
+
+{name:"Light Blue Denim with Star Patch",img:"https://i.pinimg.com/1200x/70/8d/a6/708da654ee4077c6a139a38baf31ab1a.jpg"},
+
+{name:"Y2K Low Rise Baggy Jeans",img:"https://i.pinimg.com/736x/0a/e2/d1/0ae2d150710f4ec2d175c42ee0bed72d.jpg"}
+
+],
+
+skirts:[
+
+{name:"Ruffled Sports Skirts Summer",img:"https://www.omychic.com/cdn/shop/files/Beautiful-Pink-High-Waist-Ruffled-Sports-Skirts-Summer1.jpg?v=1754991165&width=900"},
+
+{name:"Black Leather Mini Skirt with Chain",img:"https://i.pinimg.com/736x/cf/e6/89/cfe68910bcd7ac05f0ceec5e8b4e5b10.jpg"},
+
+{name:"Ruffled Folded Skirt",img:"https://princessace.com/cdn/shop/files/ruffled-folded-skirt-pink-l-skirts-304.webp?v=1735424404&width=600"},
+
+{name:"Denim Blue Mini Skirt with Buttons",img:"https://i.pinimg.com/1200x/bd/d3/92/bdd392393ab0df7c8a4ecbbb3d555f56.jpg"},
+
+{name:"Soft Pastel Pink Flow Skirt",img:"https://i.pinimg.com/1200x/74/73/ab/7473abe09f65363a0b29b6fbe904260f.jpg"},
+
+{name:"Y2K Plaid Pleated Skirt",img:"https://i.pinimg.com/736x/81/d2/ad/81d2adf0e57e999ae3c2f17539c23bf5.jpg"},
+
+{name:"Beige Satin Midi Skirt",img:"https://i.pinimg.com/1200x/6a/31/dc/6a31dc770f8a8dd34d528dee7298ceab.jpg"},
+
+{name:"Dark Academia Brown Skirt",img:"https://i.pinimg.com/1200x/91/c7/99/91c799110ca419afac9c8d79817161d4.jpg"},
+
+{name:"Floral Summer Maxi Skirt",img:"https://i.pinimg.com/1200x/c6/bf/91/c6bf916515cdd8c6cd8bddd137708c3f.jpg"},
+
+{name:"Black High Waist Pencil Skirt",img:"https://i.pinimg.com/736x/41/02/41/410241581586d3449d2a57aa4d32865d.jpg"},
+
+{name:"Apricot Ruffle Tiered Skirt",img:"https://i.pinimg.com/736x/da/1b/96/da1b96215ee3a5ee726814d0ee947062.jpg"},
+
+{name:"Baby Blue Tennis Skirt with Stripe",img:"https://i.pinimg.com/1200x/3c/a1/5f/3ca15f286ccc867c8c5ab1b78675113a.jpg"},
+
+{name:"Vintage Denim Distressed Skirt",img:"https://i.pinimg.com/1200x/fd/ab/75/fdab757bd313fee7652f14d1fcc9ad03.jpg"},
+
+{name:"Purple Fairy Mesh Layered Skirt",img:"https://i.pinimg.com/736x/91/fa/21/91fa21717c71f08674be6d442cbfb240.jpg"},
+
+{name:"Minimalist Grey Straight Skirt",img:"https://i.pinimg.com/1200x/16/9d/cb/169dcb468b1472be9d45e92f0e084d91.jpg"},
+
+{name:"Pink Bow Detail Mini Skirt",img:"https://i.pinimg.com/1200x/15/b2/da/15b2da464c88d1fc563e68e3bbc754bd.jpg"},
+
+{name:"Elegant Black Midi Skirt",img:"https://imgpro.staticdj.com/118f097ae1b841dcffd8b29da9ef3758_1024x.jpeg"},
+
+{name:"Cream Soft Knit long Skirt",img:"https://i.pinimg.com/1200x/1a/6c/04/1a6c04e7cc309e108a7e37f4b6aa768f.jpg"},
+
+{name:"Cherry Print Cute Skirt",img:"https://i.pinimg.com/1200x/14/83/fb/1483fbe3c0773b8fa95b815594a1db06.jpg"},
+
+{name:"Cargo Style Utility Skirt",img:"https://i.pinimg.com/1200x/f8/e3/8c/f8e38c42a81c37e8ad0fbd8d7a906241.jpg"},
+
+{name:"Satin Champagne Skirt",img:"https://i.pinimg.com/1200x/05/12/3c/05123c1ba05232b79490c4f7bd03f3a2.jpg"},
+
+{name:"Street Style Black Pleated Skirt",img:"https://i.pinimg.com/736x/6e/4b/7b/6e4b7b3fb32a68ffd941d4c52fe89cac.jpg"},
+
+{name:"Soft Green Floral Skirt",img:"https://i.pinimg.com/736x/dd/2b/57/dd2b5784aa95b405668a4cf727f29b6d.jpg"},
+
+{name:"White Denim Button Mini Skirt",img:"https://i.pinimg.com/1200x/52/60/86/526086db3989f77658a2cfdd1a25227b.jpg"},
+
+{name:"Retro Checkered Skirt",img:"https://i.pinimg.com/1200x/98/10/67/9810677556218bbe2cad421fb1e85ab4.jpg"},
+
+{name:"Dark Blue Long Denim Skirt",img:"https://i.pinimg.com/736x/f5/4b/e4/f54be4643e60130bf9484c08f9d75b36.jpg"},
+
+{name:"Pink Flowy Summer Skirt",img:"https://i.pinimg.com/736x/4c/89/0f/4c890f494fd8558c07fcd278b58ef250.jpg"},
+
+{name:"Lace Layer White Skirt",img:"https://i.pinimg.com/736x/6f/f1/d7/6ff1d7e76714648d0e36014e857670fa.jpg"},
+
+{name:"Black Asymmetrical Skirt",img:"https://i.pinimg.com/1200x/eb/c4/41/ebc441fcd369c26d7d923326e97d5bac.jpg"},
+
+{name:"Kawaii Ribbon Detail Skirt",img:"https://i.pinimg.com/736x/e0/13/60/e013604222c4e185c11d3b2194e37497.jpg"}
+
+],
+
+jackets:[
+
+{name:"Oversized Denim Jacket with Patches",img:"https://i.pinimg.com/1200x/bf/16/ea/bf16ea689a5f3668e5bd535dc50c3033.jpg"},
+
+{name:"Black Leather Moto Jacket",img:"https://i.pinimg.com/1200x/c7/94/b7/c794b79e6c2816e8cc7f470af2bc70c9.jpg"},
+
+{name:"Pink Soft Bomber Jacket",img:"https://i.pinimg.com/1200x/11/79/54/117954fded4f17b43b9fe28c921fd54a.jpg"},
+
+{name:"White Cropped Hoodie Jacket",img:"https://i.pinimg.com/736x/3e/86/28/3e8628acaab4d29f8d656f5f7ee9e90b.jpg"},
+
+{name:"Dust Storm Nylon Cropped Jacket",img:"https://i.pinimg.com/1200x/09/db/e8/09dbe88f4b8400aa87018f879174de89.jpg"},
+
+{name:"Beige Teddy Bear Jacket",img:"https://i.pinimg.com/736x/3d/ab/b8/3dabb89dcad2197be0a50db35841b457.jpg"},
+
+{name:"Dark Grey Oversized Blazer Jacket",img:"https://i.pinimg.com/1200x/0b/12/fe/0b12fea0a8bfff222dbf24954ad63331.jpg"},
+
+{name:"Y2K Crop Denim Jacket",img:"https://i.pinimg.com/1200x/ce/05/f8/ce05f81ae2bcf784737b7a5a9a146627.jpg"},
+
+{name:"Black Puffer Jacket with Belt",img:"https://i.pinimg.com/1200x/88/85/14/8885141d767280740f6cb734c5a9ce4d.jpg"},
+
+{name:"Olive Green Military Jacket",img:"https://i.pinimg.com/736x/7d/2f/e6/7d2fe63e819e55679a4c3f91c43cc83b.jpg"},
+
+{name:"Soft Blue Hoodie Zip Jacket",img:"https://i.pinimg.com/736x/39/22/f9/3922f9155e4f2fc18c46c3112c2c0560.jpg"},
+
+{name:"Brown Vintage Leather Jacket",img:"https://i.pinimg.com/1200x/e7/9c/2c/e79c2c8219042deb6903dad451c4cf12.jpg"},
+
+{name:"Pastel Purple Bomber Jacket",img:"https://www.theleathercity.com/wp-content/uploads/2025/01/Jane-Womens-Pastel-Purple-Collar-Oversized-Bomber-Leather-Jacket-1.webp"},
+
+{name:"Minimal White Light Jacket",img:"https://i.pinimg.com/736x/50/c1/04/50c1042fb1314d22a40e9dd1dcd8fa10.jpg"},
+
+{name:"Graphic Print Street Jacket",img:"https://i.pinimg.com/1200x/a8/d3/69/a8d36984e0ab07e6cc3502859c2e0ca7.jpg"},
+
+{name:"Black Hoodie Jacket Oversized Fit",img:"https://i.pinimg.com/1200x/09/b9/a9/09b9a940d45921d76bef1013b9e3eff8.jpg"},
+
+{name:"Cream Knitted Cardigan Jacket",img:"https://i.pinimg.com/1200x/de/c1/12/dec112f3eb2243cab18f1daac267e22d.jpg"},
+
+{name:"Denim Blue Oversized Coat Jacket",img:"https://i.pinimg.com/1200x/87/29/8e/87298efb3ff95e0386e7681084932391.jpg"},
+
+{name:"Soft Pink Fleece Jacket",img:"https://i.pinimg.com/1200x/63/59/8d/63598d15f9fbee605d973be687cda75b.jpg"},
+
+{name:"Urban Black Utility Jacket",img:"https://i.pinimg.com/736x/5c/ee/e6/5ceee6c131769ecca74a4cc162f33155.jpg"},
+
+{name:"Grey Zip-Up Sport Jacket",img:"https://i.pinimg.com/736x/c4/0e/59/c40e59de1044130e3f6d60b77ea94dd0.jpg"},
+
+{name:"Beige Long Trench Coat",img:"https://i.pinimg.com/1200x/38/af/0a/38af0a8830085176a1dc3f861d44c453.jpg"},
+
+{name:"Cropped Black Leather Jacket",img:"https://i.pinimg.com/736x/56/03/a7/5603a760a708db62ee5e1e1ebb67b3ab.jpg"},
+
+{name:"Blue Windbreaker Reflective Style",img:"https://i.pinimg.com/1200x/d9/7d/9a/d97d9a569de69f395cdd0d5a5af8addc.jpg"},
+
+{name:"White Faux Fur Jacket",img:"https://i.pinimg.com/736x/0a/74/d5/0a74d50bbdff5921af5f2dce1f5c7263.jpg"},
+
+{name:"Street Cargo Pocket Jacket",img:"https://i.pinimg.com/1200x/7d/45/83/7d4583a685522e6f99b06b7c2110b665.jpg"},
+
+{name:"Navy Blue Classic Blazer Jacket",img:"https://i.pinimg.com/1200x/c7/b6/5c/c7b65c3df654178cd3e9c8ded719eb66.jpg"},
+
+{name:"Soft Yellow Lightweight Jacket",img:"https://i.pinimg.com/1200x/b9/ec/a5/b9eca5b38a3ab92fda938ef72b0a6f53.jpg"},
+
+{name:"Dark Brown Vintage Bomber Jacket",img:"https://i.pinimg.com/736x/1e/5a/c9/1e5ac94c347125d6fe652e8b0f627f85.jpg"},
+
+{name:"Cute Pink Bear Ears Hoodie Jacket",img:"https://www.sugarplumstore.net/cdn/shop/files/O1CN018fzsO11pIr5h2z3nB__1015785338_c6b2a8ff-5364-4107-9c4e-6adf725ce1d3.jpg?v=1712763414&width=1445"}
+
+],
+
+dresses:[
+
+{name:"White Angel Lace Mini Dress", img:"https://i.pinimg.com/1200x/45/7b/1e/457b1ebd4f403e95295ff6ce92cdf076.jpg"},
+
+{name:"Black Elegant Bodycon Dress", img:"https://i.pinimg.com/736x/51/f7/35/51f735bb319b6853a370ef7c3825e3c7.jpg"},
+
+{name:"Pink Fairy Ruffle Dress", img:"https://i.pinimg.com/1200x/81/8f/88/818f886b1780682dbf0ed3b44e290786.jpg"},
+
+{name:"Floral Summer Maxi Dress", img:"https://i.pinimg.com/736x/3d/08/e6/3d08e64b7738b6a3bd4abe361e793a06.jpg"},
+
+{name:"Baby Blue Satin Slip Dress", img:"https://i.pinimg.com/1200x/06/1b/e3/061be36eb108ee7442c535757166edc0.jpg"},
+
+{name:"Red Hot Party Mini Dress", img:"https://i.pinimg.com/1200x/c3/14/4b/c3144b6c4eb5eaf2ac8e4d758f03a7c7.jpg"},
+
+{name:"Soft Beige Knit Dress", img:"https://i.pinimg.com/1200x/e4/e6/82/e4e6824b5028258224b36b4cbbe990d5.jpg"},
+
+{name:"Y2K Corset Style Dress", img:"https://i.pinimg.com/1200x/0f/88/b0/0f88b0f826f9491f5cddccc766f93501.jpg"},
+
+{name:"Black Off-Shoulder Elegant Dress", img:"https://i.pinimg.com/1200x/fa/8e/f4/fa8ef4196c090bc895e4f58e91f9ca35.jpg"},
+
+{name:"Lavender Dream Flow Dress", img:"https://i.pinimg.com/736x/76/6e/13/766e136972219580335f5a1210a1f876.jpg"},
+
+{name:"White Princess Puff Sleeve Dress", img:"https://i.pinimg.com/1200x/7b/be/de/7bbede1075f34be56d042f686ff892a9.jpg"},
+
+{name:"Dark Academia Brown Midi Dress", img:"https://i.pinimg.com/736x/57/38/86/5738868e2edf3935e134916a079064d2.jpg"},
+
+{name:"Cherry Print Cute Dress", img:"https://i.pinimg.com/736x/5f/56/79/5f5679ffd5ce05efa23c176088795044.jpg"},
+
+{name:"Pastel Pink Skater Dress", img:"https://i.pinimg.com/736x/46/90/98/469098e8573132c060cbfe0a508c8353.jpg"},
+
+{name:"Midnight Black Lace Maxi Dress", img:"https://i.pinimg.com/736x/5a/ac/f9/5aacf917a5b6c9e7be9105f3b97254ae.jpg"},
+
+{name:"Soft Green Garden Dress", img:"https://i.pinimg.com/736x/5c/21/5b/5c215b74713d1d065ec99e9fa3eb0e2c.jpg"},
+
+{name:"Denim Blue Shirt Dress", img:"https://i.pinimg.com/736x/f5/3c/a6/f53ca6ddd6198683b7f92498de231cf3.jpg"},
+
+{name:"Elegant Champagne Satin Dress", img:"https://i.pinimg.com/736x/08/f4/d7/08f4d7af215cbc783184e946d80c32fc.jpg"},
+
+{name:"White Minimal Bodycon Dress", img:"https://i.pinimg.com/1200x/49/bb/8e/49bb8e34b1506c28f3d9a1ea6a1c0793.jpg"},
+
+{name:"Street Style Black Hoodie Dress", img:"https://i.pinimg.com/736x/7f/b0/a6/7fb0a69d41371430e71dd3c02a052fce.jpg"},
+
+{name:"Yellow Sunshine Summer Dress", img:"https://i.pinimg.com/1200x/93/35/93/933593422cfccc972993b6a83e10e722.jpg"},
+
+{name:"Pink Bow Detail Mini Dress", img:"https://i.pinimg.com/736x/8f/22/c3/8f22c3a787a9e010441e71ad5ecc6bcf.jpg"},
+
+{name:"Soft Blue Ruffle Dress", img:"https://i.pinimg.com/1200x/8d/52/f5/8d52f5305c11baca93fc5285a49bfda0.jpg"},
+
+{name:"Vintage Cream Lace Dress", img:"https://i.pinimg.com/1200x/ca/d4/5a/cad45a436b8c837bd9f1eee82592b7d2.jpg"},
+
+{name:"Purple Fairy Mesh Dress", img:"https://i.pinimg.com/736x/76/a9/6a/76a96a933f2fafe0988b8ee3fe4d31f6.jpg"},
+
+{name:"Black Strapless Party Dress", img:"https://i.pinimg.com/1200x/ff/a9/f1/ffa9f1ed68b64b480ec3bc9c3f00fb51.jpg"},
+
+{name:"Floral Cottagecore Maxi Dress", img:"https://i.pinimg.com/1200x/59/14/53/59145316f17a38fe072c24114372912d.jpg"},
+
+{name:"White Elegant Long Sleeve Dress", img:"https://i.pinimg.com/1200x/64/4b/2e/644b2e5ae335c049ec7d1364c8437014.jpg"},
+
+{name:"Casual Grey T-Shirt Dress", img:"https://i.pinimg.com/1200x/a0/47/4b/a0474b4ac656f7812515e37b4d491558.jpg"},
+
+{name:"Pink Cute Kawaii Dress", img:"https://i.pinimg.com/1200x/41/13/87/4113879029be780bea91e18c84a09f93.jpg"}
+
+]
+
+};
+
+const base=[];
+function fill(cat, minPrice, maxPrice){
+let arr = items[cat];
+for(let i = 0; i < arr.length; i++){
+let priceRange = maxPrice - minPrice;
+let price = minPrice + Math.floor(Math.random() * (priceRange + 1));
+
+base.push({
+id: base.length + 1,
+name: arr[i].name,
+price: price,
+category: cat,
+img: arr[i].img
+});	
+}
+
+}
+
+fill("tops", 350, 500);
+fill("pants", 450, 1000);
+fill("skirts", 500, 1000);
+fill("jackets", 700, 3500);
+fill("dresses", 3800, 6500);
+
+let cart=JSON.parse(localStorage.getItem('cart'))||[];
+let current;
+let promoDiscount=0;
+let promoName='';
+function sortProducts(){
+let sortType = document.getElementById('sortSelect').value;
+let sortedList = [...base];
+if(sortType === "low"){
+sortedList.sort((a, b) => a.price - b.price);
+}
+
+else if(sortType === "high"){
+sortedList.sort((a, b) => b.price - a.price);
+}
+render(sortedList);
+}
+
+function render(list=base){
+    let box = document.getElementById('products');
+    box.innerHTML = '';
+    
+    list.forEach(p => {
+        box.innerHTML += `
+        <div class='card'>
+
+            <img src='${p.img}'>
+
+            <h4>${p.name}</h4>
+
+            <p class='price'>₱${p.price}</p>
+
+            <div class='card-buttons'>
+                <button onclick='openProduct(${p.id})'>
+                    View
+                </button>
+                
+                <button onclick='addToCartDirect(${p.id})'>
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>`;
+    });
+
+    updateCartCount();
+}
+
+function backToShop(){
+cart = [];
+localStorage.removeItem('cart');
+show('home');
+render();
+}
+
+function updateCartCount(){
+document.getElementById('cartCount').innerText =
+cart.reduce((sum, item) => sum + item.qty, 0);
+
+}
+
+function filter(t){
+let filtered;
+if(t === 'all') filtered = [...base];
+else filtered = base.filter(p => p.category === t);
+
+render(filtered);
+}
+
+function searchProducts(){
+let value = document.getElementById('searchInput').value.toLowerCase();
+let filtered = base.filter(p => p.name.toLowerCase().includes(value));
+render(filtered);
+}
+
+function openProduct(id){
+current = base.find(p => p.id == id);
+document.getElementById('pimg').src = current.img;
+document.getElementById('pname').innerText = current.name;
+document.getElementById('pdesc').innerText = 'Made with premium fabric';
+document.getElementById('psizes').innerText = 'Available Sizes: XS • S • M • L • XL';
+document.getElementById('pprice').innerText = '₱' + current.price;
+show('product');
+}
+
+function addToCartDirect(id){
+    let product = base.find(p => p.id == id);
+    if(!product) return;
+    
+    let existing = cart.find(item => item.id == id);
+    if(existing){
+        existing.qty++;
+    } else {
+        cart.push({...product, qty: 1});
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    alert(`${product.name} added to cart!`);
+}
+
+function changeQty(id,delta){
+let item=cart.find(c=>c.id==id);
+if(!item) return;
+item.qty+=delta;
+if(item.qty<=0) cart=cart.filter(c=>c.id!=id);
+localStorage.setItem('cart',JSON.stringify(cart));
+loadCart();
+render();
+}
+
+function show(p){
+    document.querySelectorAll('.page').forEach(e => {
+        e.classList.remove('active');
+        e.style.display = 'none';
+    });
+    
+    const page = document.getElementById(p);
+    if(page){
+        page.classList.add('active');
+        page.style.display = 'block';
+    }
+    
+    if(p === 'home'){
+        render();          
+    }
+    if(p === 'checkout'){
+        loadCart();
+    }
+}
+
+function loadCart(){
+let box = document.getElementById('cartBox');
+box.innerHTML = '';
+let total = 0;
+cart.forEach(i => {
+total += i.price * i.qty;
+box.innerHTML += `
+<p>${i.name}</p>
+<div class='qty-controls'>
+<button onclick='changeQty(${i.id},-1)'>-</button>
+<span>${i.qty}</span>
+<button onclick='changeQty(${i.id},1)'>+</button>
+</div>
+<p>₱${i.price * i.qty}</p>
+<hr>`;
+});
+
+let deliveryFee = total >= 100 ? 0 : 5;
+let finalTotal = total + deliveryFee;
+document.getElementById('subtotal').innerText = 'Subtotal: ₱' + total;
+document.getElementById('delivery').innerText = 'Delivery Fee: ₱' + deliveryFee;
+document.getElementById('total').innerText = 'Total: ₱' + finalTotal;
+updateCartCount();
+}
+
+function applyPromo(){
+alert("Promo unchanged");
+}
+function placeOrder(){
+    let name = document.getElementById('name').value.trim();
+    if(name === ""){
+        alert("Please enter your Full Name");
+        return;
+    }
+
+    let track = 'NIX' + Math.floor(Math.random()*900000 + 100000);
+    let method = document.getElementById('method').value;
+
+    // Clear cart
+    cart = [];
+    localStorage.removeItem('cart');
+
+    // Show receipt
+    document.getElementById('orderInfo').innerHTML = `Thank you <strong>${name}</strong>!<br>Your order has been placed.`;
+    document.getElementById('tracking').innerText = `Tracking Number: ${track}`;
+
+    show('receipt');
+    updateCartCount();
+}
+</script>
+
+</body>
+
+</html> 

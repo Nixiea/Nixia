@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Francia’s Perfume • Luxury Beige & Gold</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ROOT COLORS */
+:root {
+
+--bg-gradient:
+radial-gradient(circle at top left, rgba(240,225,205,0.95), transparent 30%),
+radial-gradient(circle at top right, rgba(255,248,240,0.85), transparent 35%),
+linear-gradient(
+135deg,
+#d8c3a8 0%,
+#efe3d3 35%,
+#faf5ef 70%,
+#f6ede2 100%
+);
+
+--surface: rgba(255,255,255,0.72);
+
+--text: #4d4034;
+--text-muted: #857567;
+
+/* MID BEIGE + GOLD */
+--accent: #c6a56b;
+--accent-dim: #a8864e;
+
+--border: rgba(214,190,160,0.35);
+
+--radius: 18px;
+}
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+/* BODY */
+body{
+font-family:'Poppins',sans-serif;
+background:var(--bg-gradient);
+color:var(--text);
+line-height:1.7;
+min-height:100vh;
+overflow-x:hidden;
+position:relative;
+}
+
+/* FLOATING BACKGROUND */
+body::before,
+body::after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(90px);
+z-index:-1;
+opacity:.55;
+animation:float 14s ease-in-out infinite;
+}
+
+body::before{
+background:#d8b98f;
+top:-120px;
+left:-120px;
+}
+
+body::after{
+background:#f2dfc7;
+bottom:-150px;
+right:-120px;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0px) translateX(0px);
+}
+50%{
+transform:translateY(25px) translateX(15px);
+}
+100%{
+transform:translateY(0px) translateX(0px);
+}
+}
+
+/* HEADER */
+header{
+position:fixed;
+inset:0 0 auto 0;
+z-index:100;
+height:4.6rem;
+
+background:rgba(255,255,255,0.55);
+
+backdrop-filter:blur(14px);
+
+border-bottom:1px solid var(--border);
+
+box-shadow:
+0 8px 30px rgba(180,160,140,0.08);
+}
+
+/* CONTAINER */
+.container{
+max-width:1440px;
+margin:auto;
+padding:0 1.5rem;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* LOGO */
+.logo{
+font-family:'Cormorant Garamond',serif;
+font-size:2rem;
+font-weight:700;
+letter-spacing:.5px;
+color:var(--accent);
+text-decoration:none;
+}
+
+/* NAVIGATION */
+nav a{
+color:var(--text);
+text-decoration:none;
+margin-left:1.8rem;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--accent);
+}
+
+/* MAIN LAYOUT */
+main{
+max-width:1440px;
+margin:auto;
+padding:6.8rem 1.5rem 4rem;
+
+display:grid;
+
+grid-template-columns:
+minmax(240px,280px)
+minmax(0,3fr)
+minmax(240px,280px);
+
+gap:2rem;
+}
+
+/* SIDEBAR + MAIN */
+aside,
+.main-content{
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:1.8rem;
+
+backdrop-filter:blur(12px);
+
+background:var(--surface);
+
+box-shadow:
+0 10px 30px rgba(180,160,140,0.07);
+}
+
+/* STICKY */
+aside.sticky{
+position:sticky;
+top:5.5rem;
+align-self:start;
+height:fit-content;
+}
+
+/* SIDEBAR TITLES */
+aside h3{
+font-family:'Cormorant Garamond',serif;
+font-size:1.6rem;
+color:#b89256;
+margin-bottom:1.2rem;
+letter-spacing:.3px;
+}
+
+/* SIDEBAR LINKS */
+aside ul{
+list-style:none;
+}
+
+aside a{
+display:block;
+padding:.7rem 0;
+color:var(--text-muted);
+text-decoration:none;
+transition:.3s;
+}
+
+aside a:hover{
+color:var(--accent);
+padding-left:.5rem;
+}
+
+/* CARDS */
+.main-content .card{
+margin-bottom:2rem;
+
+padding:2rem;
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,0.88),
+rgba(248,241,232,0.82)
+);
+
+border:1px solid rgba(212,185,145,0.35);
+
+border-radius:var(--radius);
+
+box-shadow:
+0 10px 24px rgba(170,140,90,0.08);
+
+transition:.3s;
+}
+
+.main-content .card:hover{
+transform:translateY(-4px);
+}
+
+.main-content .card:last-child{
+margin-bottom:0;
+}
+
+/* CARD TITLES */
+.card h2{
+font-family:'Cormorant Garamond',serif;
+font-size:2.1rem;
+color:#b89256;
+margin-bottom:1rem;
+letter-spacing:.3px;
+}
+
+/* HERO */
+.hero{
+grid-column:1 / -1;
+
+text-align:center;
+
+padding:5.5rem 2rem 7rem;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,248,240,0.55) 0%,
+rgba(230,205,170,0.18) 100%
+);
+
+border-radius:var(--radius);
+
+margin-bottom:2rem;
+
+backdrop-filter:blur(12px);
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 30px rgba(180,140,90,0.10);
+}
+
+/* HERO SPARKLES */
+.hero::before{
+content:"✦ ✦ ✦";
+position:absolute;
+top:28px;
+left:50%;
+transform:translateX(-50%);
+font-size:1.2rem;
+letter-spacing:10px;
+opacity:.65;
+animation:sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle{
+0%,100%{
+opacity:.4;
+transform:translateX(-50%) scale(1);
+}
+50%{
+opacity:1;
+transform:translateX(-50%) scale(1.08);
+}
+}
+
+/* HERO TITLE */
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:clamp(3rem,7vw,5rem);
+margin-bottom:1rem;
+color:var(--accent);
+}
+
+/* HERO TEXT */
+.hero p{
+font-size:1.15rem;
+color:var(--text-muted);
+max-width:680px;
+margin:0 auto 1.8rem;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+
+padding:.95rem 2.3rem;
+
+background:
+linear-gradient(
+135deg,
+#d4b07a 0%,
+#c49a57 50%,
+#b8863b 100%
+);
+
+color:white;
+
+font-weight:600;
+
+text-decoration:none;
+
+border-radius:999px;
+
+transition:.3s ease;
+
+box-shadow:
+0 8px 20px rgba(198,165,107,0.25);
+}
+
+.btn:hover{
+
+background:
+linear-gradient(
+135deg,
+#a8864e 0%,
+#c49a57 100%
+);
+
+transform:translateY(-3px);
+
+box-shadow:
+0 12px 28px rgba(198,165,107,0.35);
+}
+
+/* FOOTER */
+footer{
+grid-column:1 / -1;
+
+text-align:center;
+
+padding:3rem 1.5rem 2rem;
+
+color:var(--text-muted);
+
+border-top:1px solid var(--border);
+
+margin-top:3rem;
+}
+
+/* RESPONSIVE */
+@media (max-width:1099px){
+
+main{
+grid-template-columns:
+minmax(220px,320px)
+1fr;
+}
+
+.right-sidebar{
+grid-column:1/-1;
+order:3;
+}
+
+.main-content{
+order:2;
+}
+
+}
+
+@media(max-width:799px){
+
+main{
+grid-template-columns:1fr;
+gap:1.6rem;
+}
+
+aside.sticky,
+aside{
+position:static;
+}
+
+.main-content{
+order:1;
+}
+
+.left-sidebar{
+order:2;
+}
+
+.right-sidebar{
+order:3;
+}
+
+.hero{
+padding:4rem 1.5rem 6rem;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container">
+
+<a href="#home" class="logo">
+Francia’s Perfume
+</a>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#problem">Problem</a>
+<a href="#solution">Solution</a>
+<a href="#custom">Customize</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="hero" id="home">
+
+<h1>Francia’s Perfume</h1>
+
+<p>
+A scent made for comfort, confidence, and sensitivity.
+</p>
+
+<p>
+Soft, breathable, and allergy-friendly fragrances for sensitive noses.
+</p>
+
+<a href="#custom" class="btn">
+Create Your Scent
+</a>
+
+</div>
+
+<!-- LEFT SIDEBAR -->
+<aside class="left-sidebar sticky">
+
+<h3>Navigation</h3>
+
+<ul>
+<li><a href="#about">About the Brand</a></li>
+<li><a href="#problem">The Problem</a></li>
+<li><a href="#solution">Our Solution</a></li>
+<li><a href="#custom">Customization</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+<h3 style="margin-top:2rem;">
+Scent Categories
+</h3>
+
+<ul>
+<li>🌸 Floral</li>
+<li>🍊 Citrus</li>
+<li>🌿 Fresh / Clean</li>
+<li>🍦 Sweet / Vanilla</li>
+</ul>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<div class="card" id="about">
+
+<h2>About Francia’s Perfume</h2>
+
+<p>
+Inspired by someone very important in my life, Francia’s Perfume was created to honor them with a feminine, elegant fragrance.
+</p>
+
+<p>
+Each perfume is carefully crafted to balance elegance and comfort, ideal for sensitive noses while remaining sophisticated and long-lasting.
+</p>
+
+</div>
+
+<div class="card" id="problem">
+
+<h2>Why Many People Struggle with Perfumes</h2>
+
+<ul style="padding-left:1.4rem; color:var(--text-muted);">
+
+<li>Strong chemicals causing headaches</li>
+
+<li>Dizziness or nausea from overpowering scents</li>
+
+<li>Allergy triggers for sensitive individuals</li>
+
+<li>Discomfort for people with allergic rhinitis</li>
+
+</ul>
+
+</div>
+
+<div class="card" id="solution">
+
+<h2>Our Solution</h2>
+
+<ul style="padding-left:1.4rem; color:var(--text-muted);">
+
+<li>🌿 Gentle for sensitive noses</li>
+
+<li>🌸 Customizable scents to match personality</li>
+
+<li>💧 Balanced fragrance strength</li>
+
+<li>🌼 Comfort-first formula</li>
+
+<li>✨ Elegant and long-lasting</li>
+
+</ul>
+
+</div>
+
+<div class="card" id="custom">
+
+<h2>Create Your Signature Scent</h2>
+
+<ul style="padding-left:1.4rem; color:var(--text-muted);">
+
+<li>🌸 Floral – soft and elegant</li>
+
+<li>🍊 Citrus – light and fresh</li>
+
+<li>🌿 Fresh / Clean – subtle and airy</li>
+
+<li>🍦 Sweet / Vanilla – warm and comforting</li>
+
+</ul>
+
+<p>
+Select intensity:
+Light, Moderate, Strong — comfortable for sensitive noses.
+</p>
+
+</div>
+
+<div class="card" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📍 Available for customized orders</p>
+
+<ul style="padding-left:1.4rem; color:var(--text-muted);">
+
+<li>
+Instagram:
+<a href="https://www.instagram.com/franciasperfume" target="_blank">
+@franciasperfume
+</a>
+</li>
+
+<li>
+Facebook:
+<a href="https://www.facebook.com/franciasperfume" target="_blank">
+Francia’s Perfume
+</a>
+</li>
+
+<li>
+Email:
+<a href="mailto:franciasperfume@email.com">
+franciasperfume@email.com
+</a>
+</li>
+
+</ul>
+
+<p>
+✨ Fragrance should make you feel confident — not uncomfortable.
+</p>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDEBAR -->
+<aside class="right-sidebar sticky">
+
+<h3>Trending</h3>
+
+<ul>
+<li><a href="#">Floral Summer Scents</a></li>
+<li><a href="#">Light Citrus Perfumes</a></li>
+<li><a href="#">Vanilla & Sweet Notes</a></li>
+</ul>
+
+<h3 style="margin-top:2rem;">
+Recent Articles
+</h3>
+
+<ul>
+<li><a href="#">Choosing a Scent for Sensitive Noses</a></li>
+<li><a href="#">Tips for Long-lasting Perfume</a></li>
+<li><a href="#">Custom Perfume Creation Guide</a></li>
+</ul>
+
+<h3 style="margin-top:2rem;">
+Newsletter
+</h3>
+
+<p style="color:var(--text-muted); font-size:.95rem;">
+Weekly perfume tips & inspiration — no spam.
+</p>
+
+</aside>
+
+<footer>
+
+<p>
+© 2026 Francia’s Perfume • All Rights Reserved
+</p>
+
+</footer>
+
+</main>
+
+</body>
+</html>

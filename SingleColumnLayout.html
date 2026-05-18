@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SingleColumnLayout</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+color: #222;
+position: relative;
+min-height: 100vh;
+}
+
+body::before {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url("https://i.pinimg.com/736x/60/42/8f/60428f8d3b4b57d330124bae2b03f444.jpg") no-repeat center center fixed;
+background-size: cover;
+z-index: -2;
+}
+
+body::after {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 240, 246, 0.65);
+z-index: -1;
+}
+
+.navbar {
+position: sticky;
+top: 0;
+background: rgba(255,255,255,0.85);
+backdrop-filter: blur(10px);
+display: flex;
+justify-content: space-around;
+padding: 14px;
+font-weight: 600;
+box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+z-index: 10;
+}
+
+.navbar a {
+text-decoration: none;
+color: #c2185b;
+font-size: 14px;
+font-weight: 500;
+}
+
+.hero {
+text-align: center;
+padding: 50px 20px 30px;
+}
+
+.logo {
+width: 220px;
+max-width: 80%;
+margin-bottom: 10px;
+}
+
+.hero h1 {
+font-family: 'Playfair Display', serif;
+font-size: 48px;
+margin: 10px 0 0;
+color: #d81b60;
+letter-spacing: 2px;
+font-weight: 700;
+}
+
+.hero p {
+margin-top: 10px;
+color: #555;
+font-size: 16px;
+font-weight: 300;
+}
+
+/* CONTAINER */
+.container {
+max-width: 700px;
+margin: auto;
+padding: 20px;
+}
+
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: 24px;
+font-weight: 700;
+margin: 30px 0 15px;
+color: #c2185b;
+}
+
+.card {
+background: rgba(255,255,255,0.95);
+border-radius: 20px;
+overflow: hidden;
+box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+padding: 18px;
+margin-bottom: 18px;
+backdrop-filter: blur(5px);
+}
+
+.card img {
+width: 100%;
+height: 240px;
+object-fit: cover;
+border-radius: 16px;
+}
+
+.title {
+font-family: 'Playfair Display', serif;
+font-size: 20px;
+font-weight: 700;
+color: #c2185b;
+margin-top: 10px;
+}
+
+.desc {
+font-size: 13px;
+color: #666;
+margin: 6px 0;
+font-weight: 300;
+}
+
+.price {
+font-size: 18px;
+font-weight: 600;
+color: #d81b60;
+margin: 8px 0;
+}
+
+.about-box {
+background: rgba(255,255,255,0.95);
+padding: 22px;
+border-radius: 20px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+line-height: 1.7;
+color: #555;
+font-weight: 300;
+backdrop-filter: blur(5px);
+}
+
+.footer {
+margin-top: 40px;
+background: rgba(194, 24, 91, 0.95);
+color: white;
+padding: 30px;
+border-radius: 20px 20px 0 0;
+font-weight: 300;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#perfumes">Best Sellers</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="hero" id="home">
+<img src="logo.png" class="logo" alt="Francias Logo">
+<h1>FRANCIA'S PERFUME</h1>
+<p>Soft luxury scents for sensitive souls</p>
+</div>
+
+<div class="container">
+
+<div class="section-title" id="about">About Francias</div>
+
+<div class="about-box">
+<b>Our Story</b><br>
+Francias Perfume was created for people with sensitive noses and fragrance allergies.
+We focus on soft, clean, and elegant scents that feel comfortable all day.
+<br><br>
+
+<b>Our Mission</b><br>
+To make perfume that is gentle enough for everyone but still feels luxurious and premium.
+<br><br>
+
+<b>Why Francias?</b><br>
+✔ Hypoallergenic-inspired scents<br>
+✔ Soft fragrance for daily use<br>
+✔ Elegant but not overpowering<br>
+✔ Made for comfort & confidence
+</div>
+
+<div class="section-title" id="perfumes">Best Sellers</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/d0/c5/de/d0c5de71c347a52ef07e3ca78acd3847.jpg">
+<div class="title">Soft Bloom</div>
+<div class="desc">Light floral scent for everyday elegance</div>
+<div class="price">₱599</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/cb/ba/b9/cbbab9bcff18e971a286e999a76c563b.jpg">
+<div class="title">Velvet Mist</div>
+<div class="desc">Warm calming fragrance for night comfort</div>
+<div class="price">₱699</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/35/19/cb/3519cbaf1f3a479777526456e61288d9.jpg">
+<div class="title">Fresh Aura</div>
+<div class="desc">Clean refreshing scent for daily use</div>
+<div class="price">₱649</div>
+</div>
+
+</div>
+
+<div class="footer" id="contact">
+<h3>Contact Us</h3>
+<p>📍 Philippines</p>
+<p>📞 +63 923 143 2224</p>
+<p>📧 franciasperfume@gmail.com</p>
+<p>💬 Facebook: Francias Perfume Official</p>
+</div>
+
+</body>
+</html>

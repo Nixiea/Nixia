@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Francias Perfume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+margin: 0;
+font-family: 'Poppins', sans-serif;
+color: #222;
+background: url("https://i.pinimg.com/736x/ca/a2/2e/caa22e3cbd28c1cfdbc1656a898c30eb.jpg") no-repeat center center fixed;
+background-size: cover;
+}
+
+body::before {
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 240, 246, 0.65);
+z-index: -1;
+}
+
+.navbar {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+gap: 25px;
+padding: 15px 30px;
+background: rgba(255,255,255,0.9);
+backdrop-filter: blur(10px);
+z-index: 10;
+}
+
+.navbar a {
+text-decoration: none;
+color: #c2185b;
+font-size: 14px;
+font-weight: 600;
+}
+
+.layout {
+display: flex;
+margin-top: 70px;
+}
+
+.sidebar {
+width: 220px;
+padding: 20px;
+position: sticky;
+top: 70px;
+height: fit-content;
+}
+
+.sidebar h3 {
+font-family: 'Playfair Display', serif;
+color: #c2185b;
+margin-bottom: 10px;
+}
+
+.sidebar a {
+display: block;
+text-decoration: none;
+color: #444;
+margin: 10px 0;
+font-size: 14px;
+}
+
+.sidebar a:hover {
+color: #c2185b;
+}
+
+.content {
+flex: 1;
+padding: 20px 40px;
+max-width: 900px;
+}
+
+.hero {
+margin-bottom: 30px;
+}
+
+.hero h1 {
+font-family: 'Playfair Display', serif;
+font-size: 48px;
+color: #d81b60;
+margin: 0;
+}
+
+.hero p {
+color: #555;
+}
+
+.section-title {
+font-family: 'Playfair Display', serif;
+font-size: 24px;
+color: #c2185b;
+margin: 30px 0 15px;
+}
+
+.about-box {
+background: rgba(255,255,255,0.9);
+padding: 20px;
+border-radius: 15px;
+}
+
+.card {
+display: flex;
+gap: 15px;
+background: rgba(255,255,255,0.9);
+padding: 15px;
+margin-bottom: 15px;
+border-radius: 15px;
+align-items: center;
+}
+
+.card img {
+width: 120px;
+height: 120px;
+object-fit: cover;
+border-radius: 12px;
+}
+
+.title {
+font-family: 'Playfair Display', serif;
+font-size: 18px;
+color: #c2185b;
+margin: 0;
+}
+
+.desc {
+font-size: 13px;
+color: #666;
+}
+
+.price {
+font-weight: 600;
+color: #d81b60;
+margin-top: 5px;
+}
+
+.footer {
+margin-top: 40px;
+background: rgba(194, 24, 91, 0.95);
+color: white;
+padding: 20px;
+border-radius: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#perfumes">Best Sellers</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="layout">
+
+<div class="sidebar">
+<h3>Explore</h3>
+<a href="#about">About Brand</a>
+<a href="#perfumes">Perfumes</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div class="content">
+
+<div class="hero" id="home">
+<h1>FRANCIA'S PERFUME</h1>
+<p>Soft luxury scents for sensitive souls</p>
+</div>
+
+<div id="about">
+<div class="section-title">About Francias</div>
+<div class="about-box">
+Francias Perfume was created for sensitive noses and gentle luxury lovers.
+We focus on soft, clean fragrances that are comfortable all day.
+</div>
+</div>
+
+<div id="perfumes">
+<div class="section-title">Best Sellers</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/d0/c5/de/d0c5de71c347a52ef07e3ca78acd3847.jpg">
+<div>
+<div class="title">Soft Bloom</div>
+<div class="desc">Light floral scent</div>
+<div class="price">₱599</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/cb/ba/b9/cbbab9bcff18e971a286e999a76c563b.jpg">
+<div>
+<div class="title">Velvet Mist</div>
+<div class="desc">Warm calming fragrance</div>
+<div class="price">₱699</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/35/19/cb/3519cbaf1f3a479777526456e61288d9.jpg">
+<div>
+<div class="title">Fresh Aura</div>
+<div class="desc">Clean refreshing scent</div>
+<div class="price">₱649</div>
+</div>
+</div>
+
+</div>
+
+<div id="contact" class="footer">
+<h3>Contact Us</h3>
+<p>📍 Philippines</p>
+<p>📞 +63 923 143 2224</p>
+<p>📧 franciasperfume@gmail.com</p>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

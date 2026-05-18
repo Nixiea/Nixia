@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Shathlaine Quest</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* Body styling */
+
+body {
+font-family: 'Poppins', sans-serif;
+color: #fff0f5;
+scroll-behavior: smooth;
+margin: 0;
+background: url('background.jpg') no-repeat center center fixed;
+background-size: cover;
+}
+
+a { text-decoration: none; color: inherit; }
+
+       /* Navigation */
+
+nav {
+display: flex;justify-content: space-between;
+align-items: center;
+padding: 20px 60px;
+background: rgba(30, 0, 10, 0.85);
+position: sticky;
+top: 0;z-index: 1000;
+}
+nav .logo {
+font-family: 'Caveat', cursive;
+font-size: 32px;
+color: #ffccd5;
+}
+
+nav ul {
+display: flex;
+gap: 25px;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+        /* Sections */
+section {
+width: 90%;
+max-width: 1000px;
+margin: 60px auto;
+padding: 40px;
+border-radius: 25px;
+background: linear-gradient(to bottom right, rgba(102, 0, 41, 0.85), rgba(51, 0, 20, 0.85));
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+overflow: hidden;
+}
+
+section h2 {
+font-family: 'Caveat', cursive;
+font-size: 32px;
+color: #ffccd5;
+margin-bottom: 30px;
+text-align: center;
+}
+
+        /* Cards */
+.cards {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: center;
+}
+
+.card {
+background: rgba(128, 0, 32, 0.9);
+width: 200px;
+padding: 20px;
+border-radius: 20px;
+text-align: center;
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+transform: translateY(-10px);
+box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+width: 100%;
+border-radius: 12px;
+margin-top: 12px;
+}
+
+#about .profile-card {
+background: rgba(51, 0, 20, 0.95);
+padding: 30px;
+width: 340px;
+text-align: center;
+border-radius: 20px;
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+margin: 0 auto;
+}
+
+#about .profile-card img {
+width: 100%;
+height: 320px;
+object-fit: cover;
+margin-bottom: 15px;
+border-radius: 12px;
+border: 3px solid #ffccd5;
+}
+
+#about .profile-card h1 {
+font-family: 'Caveat', cursive;
+font-size: 34px;
+color: #ffccd5;
+margin: 0;
+        }
+
+footer {
+text-align: center;
+padding: 30px;
+background: rgba(30, 0, 10, 0.85);
+color: #ffccd5;
+margin-top: 70px;
+}
+
+.section-content {
+background: rgba(128, 0, 32, 0.85);
+padding: 20px;
+margin-top: 20px;
+border-radius: 15px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+   <!--NAVIGATION-->
+
+<nav>
+<div class="logo">Shathlaine Quest</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#facts">Facts</a></li>
+<li><a href="#likes">Likes</a></li>
+<li><a href="#dislikes">Dislikes</a></li>
+</ul>
+</nav>
+
+     <!-- PROFILE SECTION -->
+
+<section id="about">
+<a href="#profile-content">
+<div class="profile-card">
+<img src="profile.jpg" alt="Profile Picture">
+<h1>Paragas<br>Shathlaine Nicole S.</h1>
+<p style="text-align: justify;">Hi, I’m Shathlaine Nicole! Welcome to my little corner of the internet where you can get to know me, my likes, dislikes, favorite foods, family, journey, and everything in between. Explore, discover, and enjoy a glimpse into my world.💕</p>
+</div>
+</a>
+
+<div id="profile-content" class="section-content">
+<h2>About Me</h2>
+<p style="text-align: justify;"> <br>Hi, I’m Shathlaine Nicole S. Paragas! I’m 18 years old, born on September 14, 2007, and I’m from Caloocan City, Philippines. I love exploring life, discovering new things, and sharing a little piece of my world with others. I’m the kind of girl with big dreams and a heart for helping others, always wanting to bring happiness to the people who matter most in my life.
+<br><br>I’d describe myself as extroverted, creative, curious, and generous. I love singing even if I don’t have the strongest voice, and I’m very organized and I enjoy keeping things tidy and neat. Music is a big part of my life, and I’m always willing to try new experiences and learn new things.
+<br><br>My biggest goals are to finish my studies and build a stable, fulfilling career. I also dream of traveling to different countries and bringing my whole family with me so they can experience the life they deserve. I believe my loved ones deserve all the good things in the world, and I hope to make that a reality one day.
+<br><br>This site is my little corner to share who I am, what I love, and the journey I’m on. I hope it gives you a glimpse into my life and maybe even inspires you along the way.</p>
+</div>
+</section>
+
+   <!-- FACTS SECTION -->
+
+<section id="facts">
+<h2>Facts About Me</h2>
+<div class="cards">
+
+<a href="#Curious Tinkerer">
+<div class="card">
+<strong>Curious Tinkerer</strong>
+<img src="phone.jpg" alt="Curious Tinkerer">
+</div>
+</a>
+
+<a href="#Student Life">
+<div class="card">
+<strong>Student Life</strong>
+<img src="abm.jpg" alt="Student Life">
+</div>
+</a>
+
+<a href="#Dancing Dreams">
+<div class="card">
+<strong>Dancing Dreams</strong>
+<img src="dance.jpg" alt="Dancing Dreams">
+</div>
+</a>
+
+<a href="#Avid Reader">
+<div class="card">
+<strong>Avid Reader</strong>
+<img src="books.jpg" alt="Avid Reader">
+</div>
+</a>
+
+<a href="#Passionate Viewer">
+<div class="card">
+<strong>Passionate Viewer</strong>
+<img src="movies.jpg" alt="Passionate Viewer">
+</div>
+</a>
+
+<a href="#Money-savvy">
+<div class="card">
+<strong>Money-savvy</strong>
+<img src="money" alt="Money-savvy">
+</div>
+</a>
+
+</div>
+
+<div id="Curious Tinkerer" class="section-content">
+<h2>Curious Tinkerer</h2>
+<p style="text-align: center;">I love tinkering with gadgets and fixing things like LCDs and other simple cellphone parts.</p>
+</div>
+
+<div id="Emotional & Soft-hearted" class="section-content">
+<h2>Emotional & Soft-hearted</h2>
+<p style="text-align: center;">I can be sensitive and a bit moody, yet I’m cheerful at heart. I have a soft spot for the older generation.</p>
+</div>
+
+<div id="Dancing Dreams" class="section-content">
+<h2>Dancing Dreams</h2>
+<p style="text-align: center;">I adore dancing, even though I’m still working on my skills.</p>
+</div>
+
+<div id="Avid Reader" class="section-content">
+<h2>Avid Reader</h2>
+<p style="text-align: center;">I’m a bookworm who enjoys novels and Wattpad stories, always diving into new worlds.</p>
+</div>
+
+<div id="Passionate Viewer" class="section-content">
+<h2>Passionate Viewer</h2>
+<p style="text-align: center;">I love watching shows and movies about martial arts, fantasy, detectives, powers, and stories where strong women shine.</p>
+</div>
+
+<div id="Money-savvy" class="section-content">
+<h2>Money-savvy</h2>
+<p style="text-align: center;">I’m conscious about my spending and always keep track of my budget.</p>
+</div>
+
+<div id="Student Life" class="section-content">
+<h2>Student Life</h2>
+<p style="text-align: center;">I used to be an ABM student, but now I’m in IT, still learning the ropes of programming.</p>
+</div>
+</section>
+
+   <!-- LIKES SECTION -->
+
+<section id="likes">
+<h2>Things I Like</h2>
+<div class="cards">
+
+<a href="#Food">
+<div class="card">
+<strong>Favorite Foods</strong>
+<img src="food.jpg" alt="Food">
+</div>
+</a>
+
+<a href="#Drink Experiences">
+<div class="card">
+<strong>Drink Experiences</strong>
+<img src="drinks.jpg" alt="Drink Experiences">
+</div>
+</a>
+
+<a href="#Self-Care Moments">
+<div class="card">
+<strong>Self-Care Moments</strong>
+<img src="Self-Care Moments.jpg" alt="Self-Care Moments">
+</div>
+</a>
+
+<a href="#Cozy Living & Simple Comforts">
+<div class="card">
+<strong>Cozy Living & Simple Comforts</strong>
+<img src="Cozy Living & Simple Comforts.jpg" alt="Cozy Living & Simple Comforts">
+</div>
+</a>
+
+</div>
+
+<div id="pizza-content" class="section-content">
+<h2>Favorite Foods</h2>
+<p style="text-align: justify;">I’m a true food lover who enjoys almost everything, but fries, fried chicken, and pizza are always at the top of my list. I also appreciate simple yet comforting dishes like ampalaya with egg and anything served with warm, flavorful soup. I love fruits such as pears, oranges, dalandan, watermelon, melon, mangoes, and mangosteen, among many others, because their fresh, sweet, and juicy flavors always make me happy. I have a sweet tooth as well—candies are one of my simple joys, and I adore desserts like buko salad, graham cake, leche flan, ube treats, donuts, brownies, and more. Most of all, I cherish home-cooked meals, especially when my grandfather or grandmother prepares them, because food made with love always tastes the best.</p>
+</div>
+
+<div id="Drink Experiences" class="section-content">
+<h2>Drink Experiences</h2>
+<p style="text-align: justify;">I love brunch dates, chocolate treats, coffee breaks, baking, and cooking. There’s something special about preparing food and sharing it with others, and even simple meals can feel meaningful to me. I enjoy refreshing drinks like Sprite, Nestea, different kinds of fruit juices, and of course water, which is my everyday essential. I’m not as into milk tea as I used to be, but I still treat myself to fruit tea since it has become my preferred choice. Whether it’s a cozy café moment, homemade baked goods, or a simple drink on a warm day, food and drinks always bring me comfort and happiness.</p>
+</div>
+
+<div id="Self-Care Moments" class="section-content">
+<h2>Self-Care Moments</h2>
+<p style="text-align: justify;">Getting a massage and having quiet “me-time” are important to me. Taking care of myself helps me recharge, stay balanced, and clear my mind. I love buying things that make me feel confident and stunning, whether it’s body care or skincare products. I especially enjoy investing in skincare for my face because I believe my “face card” should never decline. I also love fixing myself up and doing my makeup since it boosts my confidence and makes me feel more empowered. For me, self-care is not just about looking good, but also about feeling good from the inside out. It’s my way of showing love and appreciation to myself.</p>
+</div>
+
+<div id="Cozy Living & Simple Comforts" class="section-content">
+<h2>Cozy Living & Simple Comforts</h2>
+<p style="text-align: justify;">I love snuggling under a warm blanket, sleeping in a freshly made bed, taking warm showers, and wearing cozy clothes. Little comforts like these make me feel safe, relaxed, and at peace. I absolutely love cleaning as well because it gives me a sense of order and makes my space feel fresh and welcoming. I also enjoy organizing my things, lighting scented candles, playing soft music, and creating a calm, cozy atmosphere at home. For me, comfort and coziness are not just about relaxation, but also about surrounding myself with warmth, calm, and little joys that make life feel extra nice.</p>
+</div>
+</section>
+
+
+
+   <!-- DISLIKES SECTION -->
+
+<section id="dislikes">
+<h2>Things I don't like</h2>
+<div class="cards">
+
+<a href="#Spicy Food">
+<div class="card">
+<strong>Spicy Food</strong>
+<img src="Spicy Food.jpg" alt="Spicy Food">
+</div>
+</a>
+
+<a href="#Public Speaking">
+<div class="card">
+<strong>Public Speaking</strong>
+<img src="public speaking.jpg" alt="Public Speaking">
+</div>
+</a>
+
+<a href="#Environmental Annoyances">
+<div class="card">
+<strong>Environmental Annoyances</strong>
+<img src="Environmental Annoyances.jpg" alt="Environmental Annoyances">
+</div>
+</a>
+
+<a href="#Social Pet Peeves">
+<div class="card">
+<strong>Social Pet Peeves</strong>
+<img src="Social Pet Peeves.jpg" alt="Social Pet Peeves">
+</div>
+</a>
+
+<a href="#Social Pressure & Crowds">
+<div class="card">
+<strong>Social Pressure & Crowds</strong>
+<img src="Social Pressure & Crowds.jpg" alt="Social Pressure & Crowds">
+</div>
+</a>
+
+<a href="#Dishonesty & Negativity">
+<div class="card">
+<strong>Dishonesty & Negativity</strong>
+<img src="Dishonesty & Negativity.jpg" alt="Dishonesty & Negativity">
+<img src="Dishonesty & Negativity2.jpg" alt="Dishonesty & Negativity">
+</div>
+</a> 
+
+<a href="#Minor Physical Discomforts">
+<div class="card">
+<strong>Minor Physical Discomforts</strong>
+<img src="Minor Physical Discomforts.jpg" alt="Minor Physical Discomforts">
+</div>
+</a>
+ 
+</div>
+
+<div id="Spicy Food" class="section-content">
+<h2>Spicy Food</h2>
+<p style="text-align: justify;">I really don’t like spicy food because it hurts my ears and makes me uncomfortable. Strong and overwhelming flavors don’t suit me, and I prefer foods that are mild, soothing, and easy on my senses. Spicy meals make eating stressful rather than enjoyable.</p>
+</div>
+
+<div id="Public Speaking" class="section-content">
+<h2>Public Speaking</h2>
+<p style="text-align: justify;">Public speaking makes me nervous and anxious. I feel much more comfortable expressing myself in smaller groups or private settings rather than in front of a crowd. I often worry about forgetting what to say or being judged, and large audiences can be overwhelming for me. I prefer meaningful conversations where I can take my time to think and respond, rather than rushed or formal presentations. Over time, I’m learning to build confidence, but I still feel more at ease sharing my thoughts in calm, supportive environments.</p>
+</div>
+
+<div id="Environmental Annoyances" class="section-content">
+<h2>Environmental Annoyances</h2>
+<p style="text-align: justify;">I dislike bugs, humidity, and all kinds of pollution, especially air pollution, since I have allergic rhinitis. Messy or dirty environments also make me uneasy. I appreciate clean, organized, and calm spaces that allow me to feel comfortable and at ease.</p>
+</div>
+
+<div id="Social Pet Peeves" class="section-content">
+<h2>Social Pet Peeves</h2>
+<p style="text-align: justify;">Loud talking, people being rude or tardy, and those constantly on their phones bother me. People who don’t return smiles or fail to acknowledge others’ efforts can be draining to be around. I appreciate kindness, patience, and thoughtfulness, and I notice when these qualities are missing in social interactions.</p>
+</div>
+
+<div id="Social Pressure & Crowds" class="section-content">
+<h2>Social Pressure & Crowds</h2>
+<p style="text-align: justify;">Small talk, being forced into large crowds, and social expectations to reach certain milestones by a specific age make me anxious. I prefer meaningful conversations and spaces where I feel comfortable and respected. Too much pressure or a busy, noisy crowd can make me feel overwhelmed and stressed.</p>
+</div>
+
+<div id="Dishonesty & Negativity" class="section-content">
+<h2>Dishonesty & Negativity</h2>
+<p style="text-align: justify;">I strongly dislike liars, gossiping, and constant complaining. People who focus only on negativity without trying to improve or solve problems can drain my energy. I value honesty, integrity, and a positive mindset, and being around negative or deceitful people makes me uncomfortable.</p>
+</div>
+
+<div id="Minor Physical Discomforts" class="section-content">
+<h2>Minor Physical Discomforts</h2>
+<p style="text-align: justify;">Things like itchy clothing, sticky hands, uncomfortable shoes, or other small physical irritations can ruin my mood. I like to feel clean, comfortable, and at ease with my body and surroundings.</p>
+</div>
+
+</section>
+
+
+
+    <!-- FOOTER -->
+
+<footer>
+Shathlaine Quest
+</footer>
+
+</body>
+</html>

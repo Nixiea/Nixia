@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shathlaine's Valentine Site 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+
+    /* BACKGROUND IMAGE */
+    background:
+    linear-gradient(rgba(255,230,240,0.75), rgba(255,194,220,0.75)),
+    url('https://images.unsplash.com/photo-1518199266791-5375a83190b7');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:#5a2a40;
+    overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    gap:10px;
+
+    padding:15px;
+    background:rgba(255,111,161,0.8);
+    backdrop-filter:blur(10px);
+
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:30px;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+.navbar a:hover{
+    background:white;
+    color:#ff4f8b;
+    transform:translateY(-3px);
+}
+
+/* ===== HEADER ===== */
+.header{
+    min-height:90vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:linear-gradient(135deg,#ff8fabcc,#ff6fa1cc,#ffb6d5cc);
+    color:white;
+
+    position:relative;
+    overflow:hidden;
+}
+
+.header::before,
+.header::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+}
+
+.header::before{
+    width:300px;
+    height:300px;
+    top:-80px;
+    left:-80px;
+}
+
+.header::after{
+    width:200px;
+    height:200px;
+    bottom:-60px;
+    right:-60px;
+}
+
+.header h1{
+    font-size:clamp(2.5rem,6vw,5rem);
+    margin-bottom:15px;
+    text-shadow:0 4px 10px rgba(0,0,0,0.15);
+    animation:fadeDown 1s ease;
+}
+
+.header p{
+    max-width:700px;
+    font-size:1.2rem;
+    animation:fadeUp 1s ease;
+}
+
+.header img{
+    width:130px;
+    margin-top:30px;
+    animation:float 3s ease-in-out infinite;
+}
+
+/* ===== CONTENT ===== */
+.content{
+    padding:60px 20px;
+}
+
+section{
+    max-width:950px;
+    margin:40px auto;
+    padding:40px;
+
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+    border:1px solid rgba(255,255,255,0.4);
+
+    box-shadow:0 10px 30px rgba(255,111,161,0.15);
+
+    transition:0.3s ease;
+}
+
+section:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 40px rgba(255,111,161,0.25);
+}
+
+h2{
+    color:#ff4f8b;
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+section p{
+    margin-bottom:18px;
+    line-height:1.9;
+}
+
+/* ===== LIST ===== */
+ul{
+    margin:20px 0;
+    padding-left:25px;
+}
+
+ul li{
+    list-style:"💗 ";
+    margin:10px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    background:linear-gradient(135deg,#ff6fa1,#ff4f8b);
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:50px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+
+    .navbar{
+        flex-wrap:wrap;
+    }
+
+    section{
+        padding:30px 20px;
+    }
+
+    .header{
+        min-height:75vh;
+    }
+
+    .header p{
+        font-size:1rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- HEADER -->
+<div class="header" id="home">
+
+    <h1>Happy Valentine’s Day!! 💘</h1>
+
+    <p>
+        Just wanted to send some love your way today.
+        Hope you feel appreciated and loved!
+    </p>
+
+    <img 
+    src="https://cdn-icons-png.flaticon.com/512/833/833472.png" 
+    alt="heart">
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content">
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2>Let's Talk About Love 💌</h2>
+
+        <p>
+            “Love is patient, love is kind. It does not envy,
+            it does not boast, it is not proud. It is not
+            self-seeking, it is not easily angered, it keeps
+            no record of wrongs. Love does not delight in evil
+            but rejoices with the truth. Love always protects,
+            always hopes, always perseveres.”
+            – 1 Corinthians 13:4-7.
+        </p>
+
+        <p>
+            Love is other-centered and deliberately so.
+            True love embraces others. True love values their joy
+            and celebrates their success. True love mourns their
+            losses and feels their pain.
+        </p>
+
+        <p>
+            Love is at the very core of the foundation upon
+            which our faith is built.
+        </p>
+
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+
+        <h2>Our Services 💖</h2>
+
+        <p>Valentine's Day Card Maker Includes:</p>
+
+        <ul>
+            <li>Personalized Designs</li>
+            <li>Music</li>
+            <li>Photos</li>
+            <li>Video</li>
+            <li>Voice Messages</li>
+            <li>Custom Text</li>
+            <li>Animations</li>
+        </ul>
+
+        <p>
+            Everything we create is customized with care —
+            like a handmade Valentine card, but digital 💕
+        </p>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2>Contact Us 💕</h2>
+
+        <p>Email: contact@happyhearties.com</p>
+
+        <p>Phone: +69 (596) 1546565454</p>
+
+        <p>Address: 123 Innovation Drive, Tech City, USA</p>
+
+        <p>Office Hours: Monday – Friday, 9:00 AM – 6:00 PM</p>
+
+    </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Happy Hearties • Made with 💗 for Valentine’s Day
+</div>
+
+</body>
+</html>

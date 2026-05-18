@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OLIVIA RODRIGO • CHAOS & GUTS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0014;
+      --pink: #ff2e9e;
+      --purple: #7b2cbf;
+      --accent: #ff4da6;
+      --glass: rgba(30, 10, 60, 0.22);
+      --glow: 0 0 45px rgba(255, 77, 166, 0.65);
+      --blur: blur(24px);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      height: 100vh;
+      overflow: hidden;
+      background: var(--bg);
+      color: #f5e9ff;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(123,44,191,0.25), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255,46,158,0.2), transparent 50%);
+      animation: bgPulse 18s ease-in-out infinite alternate;
+      z-index: -2;
+    }
+    @keyframes bgPulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 0.9; transform: scale(1.15); }
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: rgba(12,0,20,0.7);
+      backdrop-filter: var(--blur);
+      border-bottom: 1px solid rgba(255,77,166,0.2);
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5rem;
+    }
+    .nav-btn {
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #d0b0ff;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.45s ease;
+    }
+    .nav-btn:hover,
+    .nav-btn.active {
+      color: #fff;
+      text-shadow: var(--glow);
+      transform: scale(1.05);
+    }
+    .nav-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--accent));
+      transform: translateX(-50%);
+      transition: width 0.6s cubic-bezier(0.22,1,0.36,1);
+      box-shadow: var(--glow);
+    }
+    .nav-btn:hover::after,
+    .nav-btn.active::after {
+      width: 110%;
+    }
+    .page {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(30px);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 90px 6% 3% 6%;
+    }
+    .page.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(12,0,20,0.78), rgba(123,44,191,0.45));
+      z-index: 1;
+    }
+    .main-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
+      line-height: 0.9;
+      margin-bottom: 0.8rem;
+      letter-spacing: -6px;
+      background: linear-gradient(90deg, #ffffff, var(--pink), var(--purple), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(255,77,166,0.6);
+    }
+    #home .main-content { display: none; }
+
+    /* Albums */
+    .album-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.4rem;
+      margin: 2rem 0;
+    }
+    .album-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.65), var(--glow);
+      transition: all 0.6s ease;
+      aspect-ratio: 1 / 1;
+    }
+    .album-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .album-item:hover {
+      transform: scale(1.07);
+      box-shadow: 0 25px 90px rgba(255,77,166,0.65);
+    }
+    .album-item:hover .album-img {
+      transform: scale(1.15);
+    }
+
+    /* Music - larger embeds, magkatabi */
+    .music-container {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 1.5rem;
+      margin: 1rem 0;
+      max-width: 1400px;
+      align-self: center;
+      padding: 0 10px;
+    }
+    .iframe-wrapper {
+      flex: 1 1 45%;
+      min-width: 400px;
+      height: 450px; /* mas malaki na size */
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.75), inset 0 0 50px rgba(255,77,166,0.15);
+    }
+    .iframe-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* About - smaller fonts, compact para kasya */
+    .about-card {
+      background: var(--glass);
+      backdrop-filter: var(--blur);
+      border: 1px solid rgba(255,77,166,0.3);
+      border-radius: 36px;
+      padding: 2.5rem 2rem; /* binawasan padding */
+      max-width: 1200px;
+      margin: 1rem auto;
+      box-shadow: 0 35px 120px rgba(0,0,0,0.7), var(--glow);
+      text-align: left;
+    }
+    .about-card h1 {
+      font-size: clamp(3.2rem, 7.5vw, 5.5rem);
+      margin-bottom: 1.2rem;
+      text-align: center;
+    }
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+    .about-column {
+      background: rgba(40, 20, 70, 0.35);
+      border: 1px solid rgba(255,77,166,0.25);
+      border-radius: 20px;
+      padding: 1.4rem; /* mas compact */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      backdrop-filter: var(--blur);
+    }
+    .about-column h2 {
+      font-size: 1.55rem; /* mas maliit */
+      color: var(--pink);
+      margin-bottom: 0.9rem;
+      text-shadow: 0 0 20px rgba(255,46,158,0.4);
+    }
+    .about-column ul {
+      list-style: none;
+      font-size: 0.95rem; /* mas maliit na text */
+      line-height: 1.6;
+    }
+    .about-column li {
+      margin-bottom: 0.7rem;
+    }
+    .about-column strong {
+      color: var(--accent);
+    }
+
+    @media (max-width: 1100px) {
+      nav { gap: 3rem; }
+      .about-card { padding: 2rem 1.8rem; max-width: 95%; }
+      .about-section { grid-template-columns: 1fr; gap: 2rem; }
+      .music-container { flex-wrap: wrap; gap: 2rem; }
+      .iframe-wrapper { height: 420px; min-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      nav { gap: 1.6rem; font-size: 0.85rem; }
+      h1 { font-size: clamp(3rem, 10vw, 5rem); }
+      .about-card { padding: 1.8rem 1.2rem; }
+      .about-column h2 { font-size: 1.4rem; }
+      .about-column ul { font-size: 0.92rem; }
+      .iframe-wrapper { height: 380px; }
+    }
+    @media (max-height: 700px) {
+      .page { padding: 80px 6% 2% 6%; }
+      .iframe-wrapper { height: 400px; }
+      .about-card { padding: 1.8rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-btn active" onclick="showPage('home')">HOME</div>
+  <div class="nav-btn" onclick="showPage('album')">ALBUMS</div>
+  <div class="nav-btn" onclick="showPage('music')">MUSIC</div>
+  <div class="nav-btn" onclick="showPage('about')">ABOUT</div>
+</nav>
+
+<div id="home" class="page active" style="background-image: url('https://i.pinimg.com/736x/f5/4f/fc/f54ffc01050246858fc61c973f696038.jpg');"></div>
+
+<div id="album" class="page" style="background-image: url('https://i.pinimg.com/736x/69/ad/4d/69ad4dd4e6f4650e65cb640838fad6bb.jpg');">
+  <div class="main-content">
+    <h1>ALBUMS & PHOTOS</h1>
+    <div class="album-grid">
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/2b/20/ce/2b20ce372503224eacfd195c0706e628.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/3f/fc/55/3ffc554cfa88138ef79f8e2d97ad48ed.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/d1/59/8b/d1598b81b346c735ec3c68185ea5f6f7.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/c2/60/fd/c260fd80da632f6f7116ec285bac6f77.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/a6/8a/96/a68a9616bc4eed8cab4a41f97e63a52d.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/59/09/58/59095837f1436cfdceb713f91435944e.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/a4/0e/e3/a40ee3322a5111c3b950227a008530d5.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/7a/09/bd/7a09bd1915ff97eb88eae325f6ef7905.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/04/f5/c9/04f5c9fdc487a8745c63164123200988.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/a0/93/f1/a093f131c861174cc75ccd1c8c2a6277.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/02/f9/27/02f927e0ba52a28e89b8256515766183.jpg" loading="lazy" alt="Olivia"></div>
+      <div class="album-item"><img class="album-img" src="https://i.pinimg.com/736x/29/5f/c2/295fc28f739738d1df7e717d766ecfef.jpg" loading="lazy" alt="Olivia"></div>
+    </div>
+  </div>
+</div>
+
+<div id="music" class="page" style="background-image: url('https://i.pinimg.com/736x/0a/d9/b4/0ad9b4954532fd73292dec9aa10a4cec.jpg');">
+  <div class="main-content">
+    <h1>STREAM THE CHAOS</h1>
+    <div class="music-container">
+      <div class="iframe-wrapper">
+        <iframe src="https://open.spotify.com/embed/album/6s84u2TUpR3wdUv4NgKA2j" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe src="https://open.spotify.com/embed/album/1xJHno7SmdVtZAtXbdbDZp" scrolling="no" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="page" style="background-image: url('https://i.pinimg.com/736x/2e/5b/72/2e5b729a9e8c1ff9507570c867678996.jpg');">
+  <div class="main-content">
+    <div class="about-card">
+      <h1>OLIVIA RODRIGO</h1>
+      <div class="about-section">
+        <div class="about-column">
+          <h2>BASIC FACTS</h2>
+          <ul>
+            <li><strong>Full name:</strong> Olivia Isabel Rodrigo</li>
+            <li><strong>Born:</strong> February 20, 2003 (age 23)</li>
+            <li><strong>Birthplace:</strong> Murrieta, California (raised in Temecula)</li>
+            <li><strong>Heritage:</strong> Filipino-American (father Filipino, mother German/Irish)</li>
+            <li><strong>Nationality:</strong> American</li>
+            <li><strong>Occupation:</strong> Singer-songwriter, actress</li>
+            <li>Started as child actress on Disney (Bizaardvark, High School Musical: The Musical: The Series)</li>
+            <li><strong>Breakout hit:</strong> "drivers license" (2021)</li>
+            <li><strong>Height:</strong> 5'5" (165 cm)</li>
+          </ul>
+        </div>
+        <div class="about-column">
+          <h2>AWARDS & ACHIEVEMENTS</h2>
+          <ul>
+            <li>3× Grammy Awards winner (including Best New Artist 2022)</li>
+            <li>14 Grammy nominations total (as of 2026)</li>
+            <li>Won Best Pop Vocal Album (SOUR), Best Pop Solo Performance ("drivers license")</li>
+            <li>Multiple Billboard Music Awards & other wins</li>
+            <li>Named Time Entertainer of the Year (2021)</li>
+            <li>Received UMG x Reverb Amplifier Award for Positive Change (2026)</li>
+            <li>Youngest artist to debut at #1 on Billboard Hot 100 multiple times</li>
+            <li>SOUR album reached 250+ weeks on Billboard 200 (milestone in 2026)</li>
+          </ul>
+        </div>
+        <div class="about-column">
+          <h2>MUSIC & CAREER</h2>
+          <ul>
+            <li><strong>Debut album:</strong> SOUR (2021) – massive breakout</li>
+            <li><strong>Second album:</strong> GUTS (2023) – hit singles like "vampire"</li>
+            <li>Working on third album (OR3) – teased as "sad love songs" with joyful/dark twist (expected 2026)</li>
+            <li>Known for raw, emotional songwriting about heartbreak, growth, love & vulnerability</li>
+            <li>Inspired by artists like Taylor Swift, plays piano & guitar</li>
+            <li>Started songwriting young; proud of Filipino roots & family traditions</li>
+            <li>Advocates for positive change (environment, fan engagement)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  [...document.querySelectorAll('.nav-btn')].find(b => b.getAttribute('onclick').includes(id)).classList.add('active');
+}
+</script>
+</body>
+</html>

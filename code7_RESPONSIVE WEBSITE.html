@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RESPONSIVE WEBSITE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+
+  background:
+    linear-gradient(135deg, rgba(90, 0, 130, 0.55), rgba(180, 140, 255, 0.35)),
+    url("https://i.pinimg.com/736x/e0/e1/ff/e0e1ffc51f1118fc39a81e2e0ab577d6.jpg") no-repeat center center fixed;
+
+  background-size: cover;
+
+  color: #2a2230;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: rgba(60, 0, 90, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 22px;
+  text-align: center;
+  color: #f3eaff;
+}
+
+.header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.9em;
+  color: #f3eaff;
+  text-shadow:
+    0 0 8px rgba(210, 180, 255, 0.8),
+    0 0 18px rgba(180, 120, 255, 0.6);
+}
+
+/* TAGLINE */
+.tagline {
+  color: #f3eaff;
+  font-size: 1.1em;
+  text-align: center;
+  max-width: 800px;
+  margin: 10px auto 0 auto;
+}
+
+/* NAV */
+.nav_menu {
+  display: flex;
+  justify-content: center;
+  background: rgba(120, 60, 180, 0.6);
+}
+
+.nav_menu a {
+  padding: 14px 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav_menu a:hover {
+  background: #d7b3ff;
+  color: #2b003f;
+  border-radius: 8px;
+}
+
+/* BOXES */
+.columnA,
+.columnB,
+.columnC {
+  float: left;
+  width: 31%;
+  margin: 1%;
+  padding: 26px; /* ✔ slightly bigger padding */
+
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 16px;
+
+  color: #1f1a25;
+}
+
+/* ✔ HINABAAN CONTENT */
+.columnA p,
+.columnB p,
+.columnC p {
+  margin-bottom: 12px;
+}
+
+/* CONTACT */
+.contact-box {
+  clear: both;
+  margin: 40px 1%;
+  padding: 30px;
+
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+
+  text-align: center; /* ✔ CENTERED CONTACT */
+}
+
+.contact-box h2 {
+  color: #4a1f6b;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact-box p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* HEADINGS */
+h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4a1f6b;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* TEXT */
+p {
+  font-size: 1rem;
+  color: #2b2432;
+  text-align: justify;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+  .columnA,
+  .columnB,
+  .columnC {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .columnA,
+  .columnB,
+  .columnC {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>Francia’s Perfume</h2>
+
+  <p class="tagline">
+    A violet-inspired fragrance experience made for comfort, elegance, and soft luxury
+  </p>
+</div>
+
+<div class="nav_menu">
+  <a href="#about">About</a>
+  <a href="#problem">Problem</a>
+  <a href="#solution">Solution</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div style="overflow:hidden; padding:30px 1%;">
+
+  <div class="columnA" id="about">
+    <h2>About the Brand</h2>
+    <p>
+      Francia’s Perfume was inspired by someone very important in my life. It represents elegance, femininity, and soft luxury. Each scent is carefully created to give comfort while still feeling premium and long-lasting. It is designed especially for people who love perfume but prefer gentle and non-overpowering fragrances.
+    </p>
+  </div>
+
+  <div class="columnB" id="problem">
+    <h2>The Problem</h2>
+    <p>
+      Many people experience headaches, dizziness, or irritation when using strong perfumes. Most fragrances in the market are too intense for sensitive noses, making it difficult to enjoy smelling good every day without discomfort or allergic reactions.
+    </p>
+  </div>
+
+  <div class="columnC" id="solution">
+    <h2>Our Solution</h2>
+    <p>
+      Francia’s Perfume creates soft, balanced, and customizable fragrances. Customers can choose scent types and intensity levels that match their personality and comfort. Every perfume is designed to be gentle, elegant, and suitable for daily wear without overwhelming the senses.
+    </p>
+  </div>
+
+</div>
+
+<div class="contact-box" id="contact">
+  <h2>Contact Us</h2>
+  <p>Email: franciasperfume@email.com</p>
+  <p>Instagram: @franciasperfume</p>
+  <p>Message us for custom perfume orders and inquiries</p>
+</div>
+
+</body>
+</html>

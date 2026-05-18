@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>PHOTO FEATURED LAYOUT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+/* FULL BACKGROUND STAYS */
+body{
+font-family:'Poppins', sans-serif;
+min-height:100vh;
+background-image:url("https://i.pinimg.com/736x/f4/23/84/f42384d5555d5d8e53f15afd533f72f8.jpg");
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+/* DARK SOFT OVERLAY FOR READABILITY */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(255,255,255,0.20);
+z-index:-1;
+}
+
+/* HERO */
+.hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+/* CONTENT */
+.hero-content{
+max-width:900px;
+padding:3rem;
+}
+
+/* TITLE */
+h1{
+font-family:'Playfair Display', serif;
+font-size:clamp(3.5rem,8vw,6.5rem);
+margin-bottom:1rem;
+color:#3b1b4a;
+}
+
+/* TEXT */
+.subtitle{
+font-size:clamp(1.2rem,2.5vw,1.6rem);
+margin-bottom:1.5rem;
+color:#4a2b5c;
+line-height:1.6;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+padding:1rem 2.5rem;
+background:#a855f7;
+color:white;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#9333ea;
+transform:translateY(-4px);
+}
+
+/* SECTIONS - GLASS STYLE (NOT WHITE) */
+section{
+padding:5rem 2rem;
+display:flex;
+justify-content:center;
+}
+
+/* TRANSPARENT GLASS CARDS */
+.card{
+max-width:900px;
+padding:2.5rem;
+border-radius:20px;
+
+/* soft glass effect instead of white */
+background:rgba(255,255,255,0.55);
+backdrop-filter:blur(6px);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+/* HEADINGS */
+.card h2{
+font-size:2.3rem;
+margin-bottom:1rem;
+color:#3b1b4a;
+}
+
+/* TEXT */
+.card p{
+font-size:1.15rem;
+line-height:1.7;
+color:#2b2233;
+margin-bottom:1rem;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+
+<div class="hero-content">
+
+<h1>Francia’s Perfume</h1>
+
+<div class="subtitle">
+A fragrance inspired by elegance, comfort, and soft luxury — designed for sensitive noses and confident personalities.
+</div>
+
+<a href="#about" class="btn">Create Your Scent</a>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="card">
+<h2>About Francia’s Perfume</h2>
+<p>
+Francia’s Perfume is created to turn memories into fragrance. Each scent is soft, elegant, and carefully balanced for everyday comfort.
+</p>
+<p>
+It is inspired by meaningful people and moments, making every bottle feel personal and unique.
+</p>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+<div class="card">
+<h2>The Problem</h2>
+<p>
+Many perfumes are too strong, causing headaches, dizziness, or irritation for sensitive users.
+</p>
+<p>
+Because of this, many people stop using perfumes even if they love smelling good.
+</p>
+<p>
+Francia’s Perfume solves this with light, breathable, and gentle fragrance blends.
+</p>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="card">
+<h2>Contact Us</h2>
+<p>
+We create custom scents based on your personality and preference.
+</p>
+<p>
+franciasperfume@email.com <br>
+@franciasperfume
+</p>
+<p>
+Fragrance should feel like comfort, not pressure.
+</p>
+</div>
+</section>
+
+</body>
+</html>

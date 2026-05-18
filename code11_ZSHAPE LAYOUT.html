@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Z SHAPE LAYOUT</title>
+<style>
+:root {
+  --bg: #f8f4f0;
+  --surface: #fff;
+  --text: #2c1f1a;
+  --muted: #6b5e55;
+  --accent: #e85d8c;
+  --radius: 24px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  z
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(232, 93, 140, 0.15);
+  height: 82px;
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 2.6rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover, nav a.active { color: #2c1f1a; }
+
+.header-cta {
+  padding: 0.85rem 2.2rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.header-cta:hover {
+  background: #f06a9a;
+  transform: translateY(-3px);
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  padding: 140px 5% 100px;
+  background: linear-gradient(135deg, #f8f4f0 0%, #f0e6d9 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(4.2rem, 10vw, 8.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 1.6rem;
+  background: linear-gradient(90deg, #2c1f1a, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subheadline {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: var(--muted);
+  margin-bottom: 3.2rem;
+  max-width: 560px;
+}
+
+.feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.feature {
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  color: var(--text);
+}
+
+.feature::before {
+  content: "✦";
+  color: var(--accent);
+  font-size: 1.7rem;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  padding: 1.45rem 3.6rem;
+  background: var(--accent);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 15px 40px rgba(232, 93, 140, 0.35);
+  transition: all 0.4s;
+}
+
+.btn-primary:hover {
+  background: #f06a9a;
+  transform: translateY(-7px);
+  box-shadow: 0 25px 60px rgba(232, 93, 140, 0.45);
+}
+
+.btn-outline {
+  padding: 1.45rem 3.4rem;
+  background: transparent;
+  border: 2.5px solid var(--muted);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 1.35rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.right-column { position: relative; }
+
+.hero-image {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 40px 90px rgba(0,0,0,0.15);
+  transform: perspective(1600px) rotateY(-12deg) rotateX(6deg);
+  transition: transform 0.9s ease;
+}
+
+.right-column:hover .hero-image {
+  transform: perspective(1600px) rotateY(-6deg) rotateX(4deg) scale(1.04);
+}
+
+/* Sections */
+section {
+  padding: 120px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+section h2 {
+  font-size: 3.3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  background: linear-gradient(90deg, #2c1f1a, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  margin-top: 3rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item .description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44,31,26,0.85));
+  color: white;
+  padding: 2.5rem 1.8rem 1.8rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.gallery-item:hover .description {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.description h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.description p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .hero-container { grid-template-columns: 1fr; gap: 6rem; text-align: center; }
+  .right-column { order: -1; }
+  .hero-image { transform: none; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 3.9rem; }
+  .btn-primary, .btn-outline { width: 100%; }
+  .gallery-item .description { padding: 2rem 1.4rem 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="#" class="logo">FRANCIA</a>
+    <nav>
+      <a href="#shop" class="active">Shop</a>
+      <a href="#collections">Collections</a>
+      <a href="#about">About Us</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#shop" class="header-cta">Shop Now</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <div class="left-column">
+      <h1>Elegance in<br>Every Thread.</h1>
+      <p class="subheadline">
+        Timeless silhouettes. Soft natural fabrics. Designed for the woman who moves through life with grace and confidence.
+      </p>
+      <div class="feature-list">
+        <div class="feature">Breathable, luxurious fabrics that feel like a second skin</div>
+        <div class="feature">Flattering cuts made for real women and real lives</div>
+        <div class="feature">Pieces you'll cherish and wear for years</div>
+        <div class="feature">Ethically made in small batches with love</div>
+      </div>
+      <div class="cta-group">
+        <a href="#shop" class="btn-primary">Shop the Collection</a>
+        <a href="#collections" class="btn-outline">Explore Lookbook</a>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <img 
+        class="hero-image"
+        src="https://i.pinimg.com/736x/9d/04/38/9d0438c7f0efef62b6d26dee6806b9eb.jpg"
+        alt="Woman in elegant modern clothing"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- Shop Section -->
+<section id="shop">
+  <h2>Our Collection</h2>
+  <p style="text-align:center; max-width:800px; margin:0 auto 4rem; font-size:1.35rem; color:var(--muted);">
+    Thoughtfully designed pieces that combine comfort, femininity, and effortless sophistication.
+  </p>
+
+  <div class="gallery">
+    <!-- Item 1 -->
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/8b/c1/1a/8bc11acbc53bf9decea08de04a152fa4.jpg" alt="White blouse">
+      <div class="description">
+        <h3>Cloud Silk Blouse</h3>
+        <p>Ultra-soft organic silk-cotton blend. Perfect for work or weekend elegance.</p>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/c2/0f/f0/c20ff0aef62578443b20cc3e3fd3430a.jpg" alt="Beige dress">
+      <div class="description">
+        <h3>Linen Midi Dress</h3>
+        <p>Breathable European linen with a flattering A-line silhouette. Your new go-to dress.</p>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/c5/20/d2/c520d2c9425349dc1ecc5263c4252c66.jpg" alt="Denim outfit">
+      <div class="description">
+        <h3>Relaxed Denim Jacket</h3>
+        <p>Premium Japanese denim, softly washed for that perfect broken-in feel.</p>
+      </div>
+    </div>
+
+</section>
+
+<!-- Collections -->
+<section id="collections" style="background:#f0e6d9;">
+  <h2>Collections</h2>
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/736x/6d/df/06/6ddf0634083e029d7a117867019b8f0e.jpg" alt="Signature Collection">
+      <div class="description">
+        <h3>Signature</h3>
+        <p>Timeless everyday pieces you'll reach for again and again.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/66/e9/89/66e98936cb98e721c2fa534925f2c9c8.jpg" alt="Everyday Wear Clothes">
+      <div class="description">
+        <h3>Essentials</h3>
+        <p>Soft neutrals and versatile basics for your capsule wardrobe.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://i.pinimg.com/1200x/e9/3e/17/e93e17c3fccb8100acb30d895ffaeaba.jpg" alt="Occasion Wear">
+      <div class="description">
+        <h3>Occasion</h3>
+        <p>Elevated pieces for special moments and celebrations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <h2>About Francia</h2>
+  <p style="text-align:center; max-width:900px; margin:0 auto; font-size:1.38rem; color:var(--muted);">
+Francia was created for women who seek clothing that feels as beautiful and comfortable as<br>
+it looks. Every piece is thoughtfully designed with elegance, simplicity, and timeless style in <br>
+mind, using only the finest natural fabrics such as soft linens, breathable organic cottons, <br>
+	and luxurious fabric blends. Each item is carefully crafted in small batches to ensure quality, <br>
+attention to detail, and a more personal touch in every stitch.<br><br>
+
+Francia is more than just clothing. It is a celebration of natural femininity, confidence, and effortless beauty. 
+Our designs are made to move with you through everyday life, enhancing your presence without overwhelming it. 
+With soft silhouettes, refined textures, and delicate finishes, Francia embraces a quiet kind of luxury that speaks through simplicity and grace.
+  </p>
+</section>
+
+<!-- Journal -->
+<section id="journal" style="background:#f0e6d9;">
+  <h2>Journal</h2>
+  <p style="text-align:center; max-width:800px; margin:0 auto 4rem; font-size:1.35rem; color:var(--muted);">
+Step into the world of Francia, where fashion meets elegance and confidence. <br>
+Our journal is a collection of style stories, fashion inspiration, and meaningful moments shared by the women who wear Francia with grace.<br><br>
+Discover timeless wardrobe ideas, seasonal trends, styling tips, and the <br>
+beauty of soft, sophisticated fashion designed for everyday life. From effortless neutrals to refined statement pieces, Francia celebrates femininity, comfort, and modern elegance in every look.
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <h2>Get in Touch</h2>
+  <p style="text-align:center; font-size:1.45rem; color:var(--muted); max-width:700px; margin:0 auto;">
+    We'd love to hear from you.<br><br>
+    Email: <strong>@francia.clothing.ph</strong><br>
+    Instagram: <strong>@Francia Clothing</strong>
+  </p>
+</section>
+
+</body>
+</html>
